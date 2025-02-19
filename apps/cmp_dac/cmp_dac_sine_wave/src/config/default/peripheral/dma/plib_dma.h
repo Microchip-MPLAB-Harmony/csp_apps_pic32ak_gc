@@ -1,0 +1,463 @@
+/*******************************************************************************
+  DMA Peripheral Library Interface Header File
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    plib_dma.h
+
+  Summary:
+    DMA peripheral library interface.
+
+  Description:
+    This file defines the interface to the DMA peripheral library. This
+    library provides access to and control of the DMA controller.
+
+  Remarks:
+    None.
+
+*******************************************************************************/
+
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+// DOM-IGNORE-END
+
+#ifndef PLIB_DMA_H    // Guards against multiple inclusion
+#define PLIB_DMA_H
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Included Files
+// *****************************************************************************
+// *****************************************************************************
+
+#include <device.h>
+#include <string.h>
+#include <stdbool.h>
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
+    extern "C" {
+
+#endif
+// DOM-IGNORE-END
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: type definitions
+// *****************************************************************************
+// *****************************************************************************
+
+/*
+ @enum         DMA_TRANSFER_EVENT
+ @brief        Identifies the status of the transfer event.
+ @details      Used to report back, via registered callback, the status of a transaction.
+ @remarks      None
+*/
+typedef enum
+{
+    /* No events yet. */
+    DMA_TRANSFER_EVENT_NONE = 0,
+
+    /* Data was transferred successfully. */
+    DMA_TRANSFER_EVENT_COMPLETE = 1,
+
+    /* Half Data is transferred */
+    DMA_TRANSFER_EVENT_HALF_COMPLETE = 2,
+
+    /* Overrun error: The DMA channel cannot keep up with data rate requirements. */
+    DMA_OVERRUN_ERROR = 3,
+
+    /* Pattern match detected */
+    DMA_PATTERN_MATCH = 4
+
+} DMA_TRANSFER_EVENT;
+
+
+typedef void (*DMA_CHANNEL_CALLBACK) (DMA_TRANSFER_EVENT status, uintptr_t contextHandle);
+
+
+/*
+ @struct       DMA_CHANNEL_OBJECT
+ @brief        Fundamental data object for a DMA channel.
+ @details      Used by DMA logic to register/use a DMA callback, report back error information
+               from the ISR handling a transfer event.
+ @remarks      None
+*/
+typedef struct
+{
+    bool inUse;
+
+    /* Call back function for this DMA channel */
+    DMA_CHANNEL_CALLBACK  callback;
+
+    /* data or Event Context that will be returned at callback */
+    uintptr_t context;
+
+} DMA_CHANNEL_OBJECT;
+
+
+/*
+ @brief        Fundamental data object that represents DMA channel number.
+ @details      None
+ @remarks      None
+*/
+#define    DMA_CHANNEL_0             (0x0U)
+
+#define    DMA_NUMBER_OF_CHANNELS    (0x6U)
+
+typedef uint32_t DMA_CHANNEL;
+
+typedef uint32_t DMA_CHANNEL_CONFIG;
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: DMA API's
+// *****************************************************************************
+// *****************************************************************************
+// *****************************************************************************
+
+/**
+ * @brief    Initializes the DMA controller of the device.
+ *
+ * @details  This function initializes the DMA controller of the device as configured by the user
+ *           from within the DMA manager of MHC.
+ *
+ * @pre      The DMA module clock requirements should have been configured in the MHC Clock Manager utility.
+ *
+ * @param    none
+ *
+ * @return   none
+ *
+ * @b Example:
+ * @code
+ *     DMA_Initialize();
+ * @endcode
+ *
+ * @remarks  none.
+ */
+void DMA_Initialize( void );
+
+/**
+ * @brief    De-initializes the DMA controller of the device to POR Values.
+ *
+ * @details  This function de-initializes the DMA controller control and status registers to it's POR state.
+ *
+ * @pre      The DMA module clock requirements should have been configured in the MHC Clock Manager utility.
+ *
+ * @param    none
+ *
+ * @return   none
+ *
+ * @b Example:
+ * @code
+ *     DMA_Deinitialize();
+ * @endcode
+ *
+ * @remarks  none.
+ */
+void DMA_Deinitialize( void );
+
+/**
+ * @brief   Schedules a DMA transfer on the specified DMA channel.
+ * @details This function schedules a DMA transfer on the specified DMA channel and starts the transfer
+ *          when the configured trigger is received. The transfer is processed based on the channel
+ *          configuration performed in the DMA manager. The channel parameter specifies the channel to
+ *          be used for the transfer.
+ *
+ *          The srcAddr parameter specifies the source address from where data will be transferred.
+ *
+ *          The destAddr parameter specifies the address location where the data will be stored.
+ *
+ *          If the channel is configured for a software trigger, calling the channel transfer function
+ *          will set the source and destination address and will also start the transfer. If the channel
+ *          was configured for a peripheral trigger, the channel transfer function will set the source and
+ *          destination address and will transfer data when a trigger has occurred.
+ *
+ *          If the requesting client registered an event callback function before calling the channel transfer
+ *          function, this function will be called when the transfer completes. The callback function will be
+ *          called with a DMA_TRANSFER_EVENT_BLOCK_TRANSFER_COMPLETE event if the transfer was processed
+ *          successfully and a DMA_TRANSFER_EVENT_ERROR event if the transfer was not processed successfully.
+ *
+ *          When a transfer is already in progress, this API will return false indicating that the transfer
+ *          request is not accepted.
+ *
+ * @pre     DMA should have been initialized by calling the DMA_Initialize. The required channel transfer
+ *          parameters such as beat size, source and destination address increment should have been configured
+ *          in MHC.
+ *
+ * @param[in] channel   The DMA channel that should be used for the transfer.
+ * @param[in] srcAddr   Source address of the DMA transfer.
+ * @param[in] destAddr  Destination address of the DMA transfer.
+ * @param[in] blockSize Size of the transfer block in bytes.
+ *
+ * @return  True - if the transfer request is accepted.
+ *          False - if a previous transfer is in progress and the request is rejected.
+ *
+ * @note None.
+ *
+ * @example
+ * @code
+ * MY_APP_OBJ myAppObj;
+ * uint8_t buf[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+ * void *srcAddr = (uint8_t *) buf;
+ * void *destAddr = (uint8_t*) &SERCOM1_REGS->USART_INT.SERCOM_DATA;
+ * size_t size = 10;
+ *
+ * DMA_ChannelCallbackRegister(DMA_CHANNEL_1, APP_DMATransferEventHandler, (uintptr_t)&myAppObj);
+ *
+ * if (DMA_ChannelTransfer(DMA_CHANNEL_1, srcAddr, destAddr, size) == true)
+ * {
+ *
+ * }
+ * else
+ * {
+ *
+ * }
+ * @endcode
+ */
+bool DMA_ChannelTransfer(DMA_CHANNEL channel, const void *srcAddr, const void *destAddr, uint32_t blockSize);
+
+/**
+ * @brief    This API is used to setup DMA pattern matching.
+ * @details  When the content of the incoming data is required in making decisions in real time,
+ *           the 32-bit DMA Controller can recognize a data pattern in its internal buffer being
+ *           transferred from the source to the destination locations. The pattern match capability,
+ *           when enabled, allows a user-programmable data pattern to be compared against a (partial)
+ *           content of DMABUF[31:0]. Upon match detection, the DMA Controller invokes its interrupt
+ *           to inform the CPU to take further action.
+ *
+ * @pre      DMA should have been initialized by calling DMA_Initialize.
+ * @param    channel            DMA channel
+ * @param    patternMatchMask   The value used to mask certain bits in the incoming data
+ * @param    patternMatchData   Pattern match data.
+ *
+ * @return None
+ *
+ * @example
+ * @code
+ * DMA_ChannelPatternMatchSetup(DMA_CHANNEL_0, 0x00FF, 0x0055);
+ * @endcode
+ *
+ * @remarks None.
+ */
+void DMA_ChannelPatternMatchSetup(DMA_CHANNEL channel, uint32_t patternMatchMask, uint32_t patternMatchData);
+
+/**
+ * @brief     Enables the specified DMA channel.
+ * @details   The function enables the specified DMA channel. Once enabled, DMA will initiate a block transfer
+ *            when the selected trigger is received.
+ * @pre       DMA should have been initialized by calling DMA_Initialize.
+ * @param[in] channel The DMA channel that needs to be enabled.
+ * @return    None.
+ * @code
+ *
+ * DMA_ChannelEnable(DMA_CHANNEL_0);
+ * @endcode
+ *
+ * @remarks   None.
+ */
+void DMA_ChannelEnable (DMA_CHANNEL channel);
+
+/**
+ * @brief     Disables the specified DMA channel.
+ * @details   The function disables the specified DMA channel. Once disabled, the channel will ignore triggers
+ *            and will not transfer data until the next time a DMA_ChannelTransfer function is called. If there
+ *            is a transfer already in progress, this will be suspended.
+ * @pre       DMA should have been initialized by calling DMA_Initialize.
+ * @param[in] channel The DMA channel that needs to be disabled.
+ *
+ * @return    None.
+ *
+ * @code
+ *
+ * DMA_ChannelDisable(DMA_CHANNEL_0);
+ * @endcode
+ *
+ * @remarks   None.
+ */
+void DMA_ChannelDisable (DMA_CHANNEL channel);
+
+/**
+ * @brief    Enable DMA channel pattern matching
+ * @details  This API is used to enable DMA pattern matching.
+ * @pre      DMA should have been initialized by calling DMA_Initialize.
+ * @param    channel DMA channel
+ * @return   none
+ * @b Example:
+ * @code
+ *     DMA_ChannelPatternMatchEnable(DMA_CHANNEL_0);
+ * @endcode
+ * @remarks  none.
+ */
+void DMA_ChannelPatternMatchEnable(DMA_CHANNEL channel);
+
+/**
+ * @brief    Disable DMA channel pattern matching
+ * @details  This API is used to disable DMA pattern matching.
+ * @pre      DMA should have been initialized by calling DMA_Initialize.
+ * @param    channel DMA channel
+ * @return   none
+ * @b Example:
+ * @code
+ *     DMA_ChannelPatternMatchDisable(DMA_CHANNEL_0);
+ * @endcode
+ * @remarks  none.
+ */
+void DMA_ChannelPatternMatchDisable(DMA_CHANNEL channel);
+
+/**
+ * @ingroup    dmadriver
+ * @brief      This function returns the status of the software request of the DMA channel.
+ * @details    This function checks if there is a pending software request for the specified DMA channel.
+ * @pre        DMA_Initialize must be called.
+ * @param[in]  channel  - DMA channel number.
+ * @b Example:
+ * @code
+ *     DMA_IsSoftwareRequestPending(DMA_CHANNEL_0);
+ * @endcode
+ * @return     true     - DMA request is pending.
+ * @return     false    - DMA request is not pending.
+ */
+bool DMA_IsSoftwareRequestPending(DMA_CHANNEL channel);
+
+/**
+ * @ingroup    dmadriver
+ * @brief      This function sets the software trigger of the DMA channel.
+ * @details    This function enables the software trigger for the specified DMA channel, initiating a DMA transfer.
+ * @pre        DMA_Initialize must be called.
+ * @param[in]  channel - DMA channel number.
+ * @b Example:
+ * @code
+ *     DMA_ChannelSoftwareTriggerEnable(DMA_CHANNEL_0);
+ * @endcode
+ * @return     None.
+ */
+void DMA_ChannelSoftwareTriggerEnable(DMA_CHANNEL channel) ;
+
+/**
+ * @brief       Returns the busy status of the channel.
+ * @details     The function returns true if the specified channel is busy with a transfer.
+ *              This function can be used to poll for the completion of transfer that was started by
+ *              calling the DMA_ChannelTransfer() function. This function can be used as a polling
+ *              alternative to setting a callback function and receiving an asynchronous notification
+ *              for transfer notification.
+ * @pre         DMA should have been initialized by calling DMA_Initialize.
+ * @param[in]   channel The DMA channel whose status needs to be checked.
+ * @return      True - The channel is busy with an on-going transfer.
+ * @return      False - The channel is not busy and is available for a transfer.
+ * @code
+ *
+ * while(DMA_ChannelIsBusy(DMA_CHANNEL_0));
+ * @endcode
+ * @remarks     None.
+ */
+bool DMA_ChannelIsBusy (DMA_CHANNEL channel);
+
+/**
+ * @brief           Returns transfer count of the ongoing DMA transfer.
+ * @details         Returns transfer count of the ongoing DMA transfer.
+ * @pre             DMA should have been initialized by calling DMA_Initialize.
+ * @param[in]       channel DMA channel.
+ * @return          None.
+ * @code
+ * uint32_t transfer_cnt;
+ * transfer_cnt = DMA_ChannelGetTransferredCount(DMA_CHANNEL_0);
+ * @endcode
+ * @remarks         None.
+ */
+uint32_t DMA_ChannelGetTransferredCount(DMA_CHANNEL channel);
+
+/**
+ * @brief           Returns the current channel settings for the specified DMA Channel.
+ * @details         Returns the current channel settings for the specified DMA Channel.
+ * @pre             DMA should have been initialized by calling DMA_Initialize.
+ * @param           channel DMA channel.
+ * @return          Current channel settings for the specified DMA Channel.
+ * @code
+ * uint32_t setting;
+ * setting = DMA_ChannelSettingsGet(DMA_CHANNEL_0);
+ * @endcode
+ * @remarks         None.
+ */
+DMA_CHANNEL_CONFIG DMA_ChannelSettingsGet(DMA_CHANNEL channel);
+
+/**
+ * @brief           This function changes the current settings of the specified DMA channel.
+ * @details         This function changes the current settings of the specified DMA channel.
+ * @pre             DMA should have been initialized by calling DMA_Initialize.
+ * @param           channel DMA channel.
+ * @param           setting Value to be set in the specified DMA Channel.
+ * @return          True - Settings updated successfully for the specified DMA channel.
+ * @return          False - Failed to update the settings for the specified DMA channel.
+ * @code
+ * uint32_t setting;
+ * bool status;
+ * setting = DMA_ChannelSettingsGet(DMA_CHANNEL_0);
+ * setting |= _DMA0CH_CHEN_MASK;
+ * status = DMA_ChannelSettingsSet(DMA_CHANNEL_0, setting);
+ * @endcode
+ * @remarks         None.
+ */
+bool DMA_ChannelSettingsSet(DMA_CHANNEL channel, DMA_CHANNEL_CONFIG setting);
+
+/**
+ * @brief           Returns the DMA channel's transfer status.
+ * @details         Returns the DMA channel's transfer status.
+ * @pre             DMA should have been initialized by calling the DMA_Initialize.
+ * @param[in]       channel The particular channel to be interrogated.
+ * @return          DMA_TRANSFER_EVENT - enum of type DMA_TRANSFER_EVENT indicating the status of the DMA transfer.
+ * @code
+ * bool isBusy;
+ *
+ * isBusy = DMA_ChannelIsBusy(DMA_CHANNEL_0);
+ *
+ * if (isBusy == false)
+ * {
+ *     if (DMA_ChannelTransferStatusGet() == DMA_TRANSFER_EVENT_ERROR)
+ *     {
+ *
+ *     }
+ *     else
+ *     {
+ *
+ *     }
+ * }
+ * @endcode
+ * @remarks         None.
+ */
+DMA_TRANSFER_EVENT DMA_ChannelTransferStatusGet(DMA_CHANNEL channel);
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
+    }
+
+#endif
+// DOM-IGNORE-END
+
+#endif //PLIB_DMA_H
