@@ -45,7 +45,7 @@ SENT_DATA_TRANSMIT sentDataTransmit = {
 };
 
 void sent_callback_tx(uintptr_t context){
-    //LED4 glows when the transmission is complete
+    //LED4 on the curiosity board
     LED_Set();
 }
 

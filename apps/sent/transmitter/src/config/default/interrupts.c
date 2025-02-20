@@ -63,12 +63,24 @@
 // Section: System Interrupt Vector declarations
 
 void _SENT1Interrupt (void);
+void _SENT2Interrupt (void);
+void _SENT2EInterrupt (void);
 
 // Section: System Interrupt Vector definitions
 
 void __attribute__ (( interrupt, no_auto_psv)) _SENT1Interrupt (void)
 {
     SENT1_InterruptHandler();
+}
+
+void __attribute__ (( interrupt, no_auto_psv)) _SENT2Interrupt (void)
+{
+    SENT2_InterruptHandler();
+}
+
+void __attribute__ (( interrupt, no_auto_psv)) _SENT2EInterrupt (void)
+{
+    SENT2E_InterruptHandler();
 }
 
 

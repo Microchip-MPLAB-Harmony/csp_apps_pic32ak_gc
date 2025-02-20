@@ -57,6 +57,8 @@
 // *****************************************************************************
 // *****************************************************************************
 void SENT1_InterruptHandler( void );
+void SENT2_InterruptHandler( void );
+void SENT2E_InterruptHandler( void );
 
 
 

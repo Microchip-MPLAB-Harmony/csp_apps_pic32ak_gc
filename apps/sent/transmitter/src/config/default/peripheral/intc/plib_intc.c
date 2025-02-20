@@ -49,6 +49,8 @@ void INTC_Initialize( void )
 {
     /* Configure Interrupt priority */
     IPC13bits.SENT1IP = 1;
+    IPC13bits.SENT2IP = 1;
+    IPC13bits.SENT2EIP = 1;
 
 
 }
