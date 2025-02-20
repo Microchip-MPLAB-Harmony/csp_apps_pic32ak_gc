@@ -52,7 +52,6 @@
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/intc/plib_intc.h"
 #include "peripheral/sent/sent_tx/plib_sent1_tx.h"
-#include "peripheral/sent/sent_rx/plib_sent2_rx.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

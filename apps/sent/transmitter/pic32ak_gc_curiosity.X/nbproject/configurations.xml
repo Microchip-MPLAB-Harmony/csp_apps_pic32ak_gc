@@ -18,10 +18,6 @@
               <itemPath>../src/config/default/peripheral/intc/plib_intc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="sent" displayName="sent" projectFiles="true">
-              <logicalFolder name="sent_rx" displayName="sent_rx" projectFiles="true">
-                <itemPath>../src/config/default/peripheral/sent/sent_rx/plib_sent_rx_common.h</itemPath>
-                <itemPath>../src/config/default/peripheral/sent/sent_rx/plib_sent2_rx.h</itemPath>
-              </logicalFolder>
               <logicalFolder name="sent_tx" displayName="sent_tx" projectFiles="true">
                 <itemPath>../src/config/default/peripheral/sent/sent_tx/plib_sent_tx_common.h</itemPath>
                 <itemPath>../src/config/default/peripheral/sent/sent_tx/plib_sent1_tx.h</itemPath>
@@ -62,9 +58,6 @@
               <itemPath>../src/config/default/peripheral/intc/plib_intc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="sent" displayName="sent" projectFiles="true">
-              <logicalFolder name="sent_rx" displayName="sent_rx" projectFiles="true">
-                <itemPath>../src/config/default/peripheral/sent/sent_rx/plib_sent2_rx.c</itemPath>
-              </logicalFolder>
               <logicalFolder name="sent_tx" displayName="sent_tx" projectFiles="true">
                 <itemPath>../src/config/default/peripheral/sent/sent_tx/plib_sent1_tx.c</itemPath>
               </logicalFolder>
@@ -127,7 +120,6 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -481,6 +473,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="800000-81ffff"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/I77686/MPLABXProjects/PIC32AK/pic32ak-new/sent/transmitter/pic32ak_gc_curiosity.X/debug/default/pic32ak_gc_curiosity_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

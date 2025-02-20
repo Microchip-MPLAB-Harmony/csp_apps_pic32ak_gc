@@ -284,9 +284,6 @@ void SYS_Initialize ( void* data )
     SENT1_Initialize();
 
 
-    SENT2_Initialize();
-
-
 
     INTC_Initialize();
 

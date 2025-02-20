@@ -74,8 +74,6 @@ void GPIO_Initialize ( void )
     /* Unlock system for PPS configuration */
     PINS_PPSUnlock();
 
- /* PPS Input Mapping */
-    RPINR14bits.SENT2R = 28;
 
  /* PPS Output Mapping */
     RPOR6bits.RP27R = 57;
