@@ -75,11 +75,11 @@ int main ( void )
     sentDataReceive = SENT2_Receive();
     //Comparing transmitted and received data
     if(compare(&sentDataTransmit, &sentDataReceive)){
-        //LED4 
+        //LED4 on the curiosity board
         LED2_Set();
     }
 	else{
-        //LED3
+        //LED3 on the curiosity board
 		LED1_Set();
 	}
     while ( true )
