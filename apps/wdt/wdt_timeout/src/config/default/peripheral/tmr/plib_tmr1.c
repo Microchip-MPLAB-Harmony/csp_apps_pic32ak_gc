@@ -35,26 +35,29 @@ void T1_InterruptHandler (void);
 // Section: Macro Definitions
 
 //Timer Pre-Scalar options
-#define T1CON_TCKPS_1_1      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(0) << _T1CON_TCKPS_POSITION))) 
-#define T1CON_TCKPS_1_8      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(1) << _T1CON_TCKPS_POSITION))) 
-#define T1CON_TCKPS_1_64      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(2) << _T1CON_TCKPS_POSITION))) 
-#define T1CON_TCKPS_1_256      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(3) << _T1CON_TCKPS_POSITION))) 
+#define T1CON_TCKPS_1_1      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(0) << _T1CON_TCKPS_POSITION)))
+#define T1CON_TCKPS_1_8      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(1) << _T1CON_TCKPS_POSITION)))
+#define T1CON_TCKPS_1_64      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(2) << _T1CON_TCKPS_POSITION)))
+#define T1CON_TCKPS_1_256      ((uint32_t)(_T1CON_TCKPS_MASK & ((uint32_t)(3) << _T1CON_TCKPS_POSITION)))
 
 //Clock selection options
-#define T1CON_SRC_SEL_STANDARD      ((uint32_t)(_T1CON_TCS_MASK & ((uint32_t)(0) << _T1CON_TCS_POSITION))) 
-#define T1CON_SRC_SEL_EXTERNAL      ((uint32_t)(_T1CON_TCS_MASK & ((uint32_t)(1) << _T1CON_TCS_POSITION))) 
+#define T1CON_SRC_SEL_STANDARD      ((uint32_t)(_T1CON_TCS_MASK & ((uint32_t)(0) << _T1CON_TCS_POSITION)))
+#define T1CON_SRC_SEL_EXTERNAL      ((uint32_t)(_T1CON_TCS_MASK & ((uint32_t)(1) << _T1CON_TCS_POSITION)))
 
 void TMR1_Initialize(void)
 {
     /* Disable Timer */
     T1CONbits.ON = 0;
 
-	T1CON = 0x0UL;
+    T1CON = 0x0UL;
     /* Clear counter */
     TMR1 = 0x0UL;
 
     /*Set period */
-    PR1 = 0x2faf080UL; /* Decimal Equivalent 50000000 */
+    PR1 = 0x2faf07fUL; /* Decimal Equivalent 49999999 */
+
+    tmr1Obj.tickCounter = 0;
+    tmr1Obj.callback_fn = NULL;
 
     /* Setup TMR1 Interrupt */
     TMR1_InterruptEnable();  /* Enable interrupt on the way out */
@@ -62,15 +65,15 @@ void TMR1_Initialize(void)
 
 void TMR1_Deinitialize(void)
 {
-	/* Stopping the timer */
-	TMR1_Stop();
-	
-	/* Deinitializing the registers to POR values */
-	T1CON = 0x0UL;
-	TMR1  = 0x0UL;
-	PR1   = 0xFFFFFFFFUL;
+    /* Stopping the timer */
+    TMR1_Stop();
+
+    /* Deinitializing the registers to POR values */
+    T1CON = 0x0UL;
+    TMR1  = 0x0UL;
+    PR1   = 0xFFFFFFFFUL;
 }
-	
+
 void TMR1_Start (void)
 {
     T1CONbits.ON = 1;
@@ -104,10 +107,40 @@ uint32_t TMR1_FrequencyGet(void)
     return TIMER_CLOCK_FREQUENCY;
 }
 
+uint32_t TMR1_GetTickCounter(void)
+{
+    return tmr1Obj.tickCounter;
+}
+
+void TMR1_StartTimeOut (TMR_TIMEOUT* timeout, uint32_t delay_ms)
+{
+    timeout->start = TMR1_GetTickCounter();
+    timeout->count = (delay_ms * 1000U)/TMR_INTERRUPT_PERIOD_IN_US;
+}
+
+void TMR1_ResetTimeOut (TMR_TIMEOUT* timeout)
+{
+    timeout->start = TMR1_GetTickCounter();
+}
+
+bool TMR1_IsTimeoutReached (TMR_TIMEOUT* timeout)
+{
+    bool valTimeout  = true;
+    if ((tmr1Obj.tickCounter - timeout->start) < timeout->count)
+    {
+        valTimeout = false;
+    }
+
+    return valTimeout;
+
+}
+
 void __attribute__((used)) T1_InterruptHandler (void)
 {
     uint32_t status = _T1IF;
     _T1IF = 0;
+
+    tmr1Obj.tickCounter++;
 
     if((tmr1Obj.callback_fn != NULL))
     {

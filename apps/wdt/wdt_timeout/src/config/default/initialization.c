@@ -72,7 +72,7 @@
 // FWDT
 #pragma config FWDT_WINDIS = ON            // Watchdog Timer operates in Non-Window mode
 #pragma config FWDT_SWDTMPS = PS2147483648            // Sleep Mode Watchdog Timer Post Scaler select bits
-#pragma config FWDT_RCLKSEL = BPRC256            // WDT Run Mode uses BFRC:256
+#pragma config FWDT_RCLKSEL = BFRC256            // WDT Run Mode uses BFRC:256
 #pragma config FWDT_RWDTPS = PS2147483648            // Run Mode Watchdog Timer Post Scaler select bits
 #pragma config FWDT_WDTWIN = WIN25            // WDT Window is 25% of WDT period
 #pragma config FWDT_WDTEN = SW            // WDT is controlled by software, use WDTCON.ON bit

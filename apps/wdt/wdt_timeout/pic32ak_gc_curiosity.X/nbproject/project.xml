@@ -4,7 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>pic32ak_gc_curiosity</name>
-            <creation-uuid>6e6238cb-face-43a7-8e8e-39ed6eda88c2</creation-uuid>
+            <creation-uuid>794a5bb9-1d8f-42d9-8726-09d76b83b143</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

@@ -87,6 +87,8 @@
 #define CLK1CON_NOSC_PLL2_VCO          ((uint32_t)(_CLK1CON_NOSC_MASK & ((uint32_t)(8) << _CLK1CON_NOSC_POSITION))) 
 #define CLK1CON_NOSC_REFI1          ((uint32_t)(_CLK1CON_NOSC_MASK & ((uint32_t)(9) << _CLK1CON_NOSC_POSITION))) 
 #define CLK1CON_NOSC_REFI2          ((uint32_t)(_CLK1CON_NOSC_MASK & ((uint32_t)(10) << _CLK1CON_NOSC_POSITION))) 
+
+//CLOCK CLKxCON BOSC options
 #define CLK1CON_BOSC_PGC          ((uint32_t)(_CLK1CON_BOSC_MASK & ((uint32_t)(0) << _CLK1CON_BOSC_POSITION))) 
 #define CLK1CON_BOSC_FRC          ((uint32_t)(_CLK1CON_BOSC_MASK & ((uint32_t)(1) << _CLK1CON_BOSC_POSITION))) 
 #define CLK1CON_BOSC_BFRC          ((uint32_t)(_CLK1CON_BOSC_MASK & ((uint32_t)(2) << _CLK1CON_BOSC_POSITION))) 
@@ -116,6 +118,8 @@
 #define CLK2CON_NOSC_PLL2_VCO          ((uint32_t)(_CLK2CON_NOSC_MASK & ((uint32_t)(8) << _CLK2CON_NOSC_POSITION))) 
 #define CLK2CON_NOSC_REFI1          ((uint32_t)(_CLK2CON_NOSC_MASK & ((uint32_t)(9) << _CLK2CON_NOSC_POSITION))) 
 #define CLK2CON_NOSC_REFI2          ((uint32_t)(_CLK2CON_NOSC_MASK & ((uint32_t)(10) << _CLK2CON_NOSC_POSITION))) 
+
+//CLOCK CLKxCON BOSC options
 #define CLK2CON_BOSC_PGC          ((uint32_t)(_CLK2CON_BOSC_MASK & ((uint32_t)(0) << _CLK2CON_BOSC_POSITION))) 
 #define CLK2CON_BOSC_FRC          ((uint32_t)(_CLK2CON_BOSC_MASK & ((uint32_t)(1) << _CLK2CON_BOSC_POSITION))) 
 #define CLK2CON_BOSC_BFRC          ((uint32_t)(_CLK2CON_BOSC_MASK & ((uint32_t)(2) << _CLK2CON_BOSC_POSITION))) 
@@ -145,6 +149,8 @@
 #define CLK3CON_NOSC_PLL2_VCO          ((uint32_t)(_CLK3CON_NOSC_MASK & ((uint32_t)(8) << _CLK3CON_NOSC_POSITION))) 
 #define CLK3CON_NOSC_REFI1          ((uint32_t)(_CLK3CON_NOSC_MASK & ((uint32_t)(9) << _CLK3CON_NOSC_POSITION))) 
 #define CLK3CON_NOSC_REFI2          ((uint32_t)(_CLK3CON_NOSC_MASK & ((uint32_t)(10) << _CLK3CON_NOSC_POSITION))) 
+
+//CLOCK CLKxCON BOSC options
 #define CLK3CON_BOSC_PGC          ((uint32_t)(_CLK3CON_BOSC_MASK & ((uint32_t)(0) << _CLK3CON_BOSC_POSITION))) 
 #define CLK3CON_BOSC_FRC          ((uint32_t)(_CLK3CON_BOSC_MASK & ((uint32_t)(1) << _CLK3CON_BOSC_POSITION))) 
 #define CLK3CON_BOSC_BFRC          ((uint32_t)(_CLK3CON_BOSC_MASK & ((uint32_t)(2) << _CLK3CON_BOSC_POSITION))) 
@@ -162,6 +168,9 @@
 //CLOCK CLKONxCON FRACDIV set
 #define CLK3DIV_FRACDIV_SET(value)          ((uint32_t)(_CLK3DIV_FRACDIV_MASK & ((uint32_t)(value) << _CLK3DIV_FRACDIV_POSITION))) 
 
+
+#define PLL1FOUT_SOURCE         5U
+#define PLL2VCODIV_SOURCE       8U 
 
 // Section: ISR declaration
 
@@ -182,6 +191,16 @@ void CLOCK_Initialize(void)
         PLL 1 VCO Out frequency                         : 800.0 MHz
 
     */
+    //Primary oscillator settings 
+    OSCCFGbits.POSCMD = 3U;
+    
+    //If CLK GEN 1 (system clock) is using a PLL, switch to FRC to avoid risk of over-clocking the CPU while changing PLL settings
+    if((CLK1CONbits.COSC >= PLL1FOUT_SOURCE) && (CLK1CONbits.COSC <= PLL2VCODIV_SOURCE))
+    {
+        CLK1CONbits.NOSC = 1U; //FRC as source 
+        CLK1CONbits.OSWEN = 1U;
+        while(CLK1CONbits.OSWEN == 1U){};
+    }
     
     //PLL 1 settings
     PLL1CON = (_PLL1CON_ON_MASK
@@ -217,9 +236,10 @@ void CLOCK_Initialize(void)
     while(PLL1CONbits.DIVSWEN == 1U){}; 
 #endif
     
+    //Clearing ON shuts down oscillator when no downstream clkgen or peripheral is requesting the clock
+    PLL1CONbits.ON = 0U;
     //Clock Generator 1 settings
     CLK1CON = (_CLK1CON_ON_MASK
-                |_CLK1CON_OE_MASK
                 |CLK1CON_NOSC_PLL1_FOUT
                 |CLK1CON_BOSC_BFRC);
     //Enable clock switching
@@ -231,7 +251,6 @@ void CLOCK_Initialize(void)
 
     //Clock Generator 2 settings
     CLK2CON = (_CLK2CON_ON_MASK
-                |_CLK2CON_OE_MASK
                 |CLK2CON_NOSC_FRC
                 |CLK2CON_BOSC_BFRC);
     //Enable clock switching
@@ -243,7 +262,6 @@ void CLOCK_Initialize(void)
 
     //Clock Generator 3 settings
     CLK3CON = (_CLK3CON_ON_MASK
-                |_CLK3CON_OE_MASK
                 |CLK3CON_NOSC_BFRC
                 |CLK3CON_BOSC_FRC);
     //Enable clock switching

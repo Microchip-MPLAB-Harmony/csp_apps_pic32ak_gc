@@ -25,11 +25,11 @@
               <itemPath>../src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../src/config/default/device.h</itemPath>
-          <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/default/traps.h</itemPath>
           <itemPath>../src/config/default/definitions.h</itemPath>
           <itemPath>../src/config/default/interrupts.h</itemPath>
-          <itemPath>../src/config/default/traps.h</itemPath>
+          <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/default/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -69,8 +69,8 @@
             <itemPath>../src/config/default/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <itemPath>../src/config/default/initialization.c</itemPath>
-          <itemPath>../src/config/default/interrupts.c</itemPath>
           <itemPath>../src/config/default/traps.c</itemPath>
+          <itemPath>../src/config/default/interrupts.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
@@ -90,7 +90,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32AK-GC_DFP" vendor="Microchip" version="1.0.1"/>
+        <pack name="PIC32AK-GC_DFP" vendor="Microchip" version="1.0.5"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -122,6 +122,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -150,7 +151,7 @@
         <property key="oXC16gcc-sfr-warn" value="false"/>
         <property key="oXC16gcc-smar-io-lvl" value="1"/>
         <property key="oXC16gcc-smart-io-fmt" value=""/>
-        <property key="optimization-level" value="-Os"/>
+        <property key="optimization-level" value="-O1"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -391,7 +392,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.specifictoolpack"/>
-        <property key="toolpack.updateoptions.packversion" value="1.19.1470"/>
+        <property key="toolpack.updateoptions.packversion" value="1.18.1438"/>
       </Tool>
       <pkob4hybrid>
         <property key="ADC1" value="true"/>
@@ -493,7 +494,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.specifictoolpack"/>
-        <property key="toolpack.updateoptions.packversion" value="1.19.1470"/>
+        <property key="toolpack.updateoptions.packversion" value="1.18.1438"/>
       </pkob4hybrid>
     </conf>
   </confs>
