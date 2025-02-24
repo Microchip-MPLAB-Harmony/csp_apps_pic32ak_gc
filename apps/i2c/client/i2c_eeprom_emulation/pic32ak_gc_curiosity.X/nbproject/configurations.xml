@@ -23,9 +23,6 @@
             <logicalFolder name="intc" displayName="intc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/intc/plib_intc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
-            </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/default/definitions.h</itemPath>
