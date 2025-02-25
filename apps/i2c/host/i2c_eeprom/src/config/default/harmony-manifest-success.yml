@@ -4,17 +4,17 @@
 
 
 project: i2c_eeprom
-creation_date: 2025-02-19T14:17:20.442+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
-operating_system: Windows 11
-mcc_mode: IDE            # [IDE|Standalone|Headless]
+creation_date: 2025-02-25T15:46:30.859+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+operating_system: Windows 10
+mcc_mode: Headless            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
 mcc_core_version: v5.7.1
-mplabx_version: v6.20        # if MPLAB X plugin only
-harmony_version: v1.5.5-a
-compiler: XC32 4.60
+mplabx_version: NA        # if MPLAB X plugin only
+harmony_version: v1.5.4
+compiler: NA
 
 modules:
-    - {name: "csp", version: "dev"}
+    - {name: "csp", version: "v3.22.0-rc.1-74-gee809d3"}
 
 packs:
     - {name: "PIC32AK-GC_DFP", version: "1.0.5"}
