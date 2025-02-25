@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -234,8 +234,6 @@
 #define PLL1FOUT_SOURCE         5U
 #define PLL2VCODIV_SOURCE       8U 
 
-// Section: ISR declaration
-
 // Section: Static Variables
 
 
@@ -259,7 +257,8 @@ void CLOCK_Initialize(void)
     OSCCFGbits.POSCMD = 3U;
     
     //If CLK GEN 1 (system clock) is using a PLL, switch to FRC to avoid risk of over-clocking the CPU while changing PLL settings
-    if((CLK1CONbits.COSC >= PLL1FOUT_SOURCE) && (CLK1CONbits.COSC <= PLL2VCODIV_SOURCE))
+    uint32_t currentSysClock = CLK1CONbits.COSC;
+    if((currentSysClock >= PLL1FOUT_SOURCE) && (currentSysClock <= PLL2VCODIV_SOURCE))
     {
         CLK1CONbits.NOSC = 1U; //FRC as source 
         CLK1CONbits.OSWEN = 1U;
@@ -305,7 +304,8 @@ void CLOCK_Initialize(void)
     //Clock Generator 1 settings
     CLK1CON = (_CLK1CON_ON_MASK
                 |CLK1CON_NOSC_FRC
-                |CLK1CON_BOSC_BFRC);
+                |CLK1CON_BOSC_BFRC
+                |_CLK1CON_FSCMEN_MASK);
     //Enable clock switching
     CLK1CONbits.OSWEN = 1U;
 #ifndef __MPLAB_DEBUGGER_SIMULATOR    

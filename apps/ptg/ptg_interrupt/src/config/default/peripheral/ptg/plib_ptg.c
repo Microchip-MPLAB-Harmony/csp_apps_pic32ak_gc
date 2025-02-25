@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -52,10 +52,6 @@ volatile static PTG_EVENTS_CALLBACK_OBJECT trigger1Obj;
 volatile static PTG_EVENTS_CALLBACK_OBJECT trigger2Obj;
 volatile static PTG_EVENTS_CALLBACK_OBJECT trigger3Obj;
 volatile static PTG_EVENTS_CALLBACK_OBJECT triggerWdtObj;
-
-
-void  PTG0_InterruptHandler(void);
-void  PTG1_InterruptHandler(void);
 
 //Section: Macro Definitions
 
@@ -128,38 +124,38 @@ void PTG_Initialize (void)
    Step Commands 
   */
 
- PTG_STEP0 = PTGWLO | 0xfU; //Trigger Input from INT2 PPS
- PTG_STEP1 = PTGCTRL | 0x8U; //Wait for PTG Timer0 to match PTGT0LIM
- PTG_STEP2 = PTGIRQ | 0x0U; //Generate PTG Interrupt 0
- PTG_STEP3 = PTGTRIG | 0xcU; //Trigger for ADC Sample Trigger
- PTG_STEP4 = PTGIRQ | 0x1U; //Generate PTG Interrupt 1
- PTG_STEP5 = PTGCTRL | 0x0U; //NOP
- PTG_STEP6 = PTGCTRL | 0x0U; //NOP
- PTG_STEP7 = PTGCTRL | 0x0U; //NOP
- PTG_STEP8 = PTGCTRL | 0x0U; //NOP
- PTG_STEP9 = PTGCTRL | 0x0U; //NOP
- PTG_STEP10 = PTGCTRL | 0x0U; //NOP
- PTG_STEP11 = PTGCTRL | 0x0U; //NOP
- PTG_STEP12 = PTGCTRL | 0x0U; //NOP
- PTG_STEP13 = PTGCTRL | 0x0U; //NOP
- PTG_STEP14 = PTGCTRL | 0x0U; //NOP
- PTG_STEP15 = PTGCTRL | 0x0U; //NOP
- PTG_STEP16 = PTGCTRL | 0x0U; //NOP
- PTG_STEP17 = PTGCTRL | 0x0U; //NOP
- PTG_STEP18 = PTGCTRL | 0x0U; //NOP
- PTG_STEP19 = PTGCTRL | 0x0U; //NOP
- PTG_STEP20 = PTGCTRL | 0x0U; //NOP
- PTG_STEP21 = PTGCTRL | 0x0U; //NOP
- PTG_STEP22 = PTGCTRL | 0x0U; //NOP
- PTG_STEP23 = PTGCTRL | 0x0U; //NOP
- PTG_STEP24 = PTGCTRL | 0x0U; //NOP
- PTG_STEP25 = PTGCTRL | 0x0U; //NOP
- PTG_STEP26 = PTGCTRL | 0x0U; //NOP
- PTG_STEP27 = PTGCTRL | 0x0U; //NOP
- PTG_STEP28 = PTGCTRL | 0x0U; //NOP
- PTG_STEP29 = PTGCTRL | 0x0U; //NOP
- PTG_STEP30 = PTGCTRL | 0x0U; //NOP
- PTG_STEP31 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP0 = PTGWLO | 0xfU; //Trigger Input from INT2 PPS
+ 	PTG_STEP1 = PTGCTRL | 0x8U; //Wait for PTG Timer0 to match PTGT0LIM
+ 	PTG_STEP2 = PTGIRQ | 0x0U; //Generate PTG Interrupt 0
+ 	PTG_STEP3 = PTGTRIG | 0xcU; //Trigger for ADC Sample Trigger
+ 	PTG_STEP4 = PTGIRQ | 0x1U; //Generate PTG Interrupt 1
+ 	PTG_STEP5 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP6 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP7 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP8 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP9 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP10 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP11 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP12 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP13 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP14 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP15 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP16 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP17 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP18 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP19 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP20 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP21 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP22 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP23 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP24 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP25 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP26 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP27 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP28 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP29 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP30 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP31 = PTGCTRL | 0x0U; //NOP
 
 	//Clear  interrupt flag  
     IFS4bits.PTG0IF = 0;
@@ -216,7 +212,7 @@ void PTG_SoftwareTriggerClear (void)
 
 bool PTG_WatchdogTimeoutStatusGet (void)
 {
-    return( PTGCONbits.PTGWDTO);
+    return (bool)PTGCONbits.PTGWDTO;
 }
 
 void PTG_StepSequenceStop (void)
@@ -255,6 +251,7 @@ void PTG_EventCallbackRegister(PTG_EVENTS event, PTG_EVENTS_CALLBACK callback_fn
 		triggerWdtObj.context = context;
 		break;
 	default:
+		/* Nothing to process */
 		break;
 	}
 }
