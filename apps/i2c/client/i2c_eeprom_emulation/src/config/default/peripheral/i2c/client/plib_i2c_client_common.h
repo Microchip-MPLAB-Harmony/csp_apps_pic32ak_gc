@@ -17,7 +17,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -67,7 +67,7 @@ typedef enum
 {
     
     I2C_CLIENT_ERROR_NONE,  /* No Error */
-    I2C_CLIENT_ERROR_BUS_COLLISION, /* Bus Collision Error */
+    I2C_CLIENT_ERROR_BUS_COLLISION  /* Bus Collision Error */
 
 } I2C_CLIENT_ERROR;
 
@@ -81,7 +81,7 @@ typedef enum
 {
     
     I2C_CLIENT_TRANSFER_DIR_WRITE = 0,      /* I2C Master is writing to client */
-    I2C_CLIENT_TRANSFER_DIR_READ  = 1,      /* I2C Master is reading from client */
+    I2C_CLIENT_TRANSFER_DIR_READ  = 1       /* I2C Master is reading from client */
     
 }I2C_CLIENT_TRANSFER_DIR;
 
@@ -94,8 +94,8 @@ typedef enum
 typedef enum
 {
     
-    I2C_CLIENT_ACK_STATUS_RECEIVED_ACK = 0,
-    I2C_CLIENT_ACK_STATUS_RECEIVED_NAK,
+    I2C_CLIENT_ACK_STAT_RECEIVED_ACK = 0,
+    I2C_CLIENT_ACK_STAT_RECEIVED_NAK
     
 } I2C_CLIENT_ACK_STATUS;
 
@@ -113,7 +113,7 @@ typedef enum
     I2C_CLIENT_TRANSFER_EVENT_RX_READY,     /* Data sent by I2C Master is available */
     I2C_CLIENT_TRANSFER_EVENT_TX_READY,     /* I2C client can respond to data read request from I2C Master */
     I2C_CLIENT_TRANSFER_EVENT_STOP_BIT_RECEIVED,    /* I2C stop bit received */
-    I2C_CLIENT_TRANSFER_EVENT_ERROR,
+    I2C_CLIENT_TRANSFER_EVENT_ERROR
 
 } I2C_CLIENT_TRANSFER_EVENT;
 

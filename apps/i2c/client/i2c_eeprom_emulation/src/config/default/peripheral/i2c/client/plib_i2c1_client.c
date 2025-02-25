@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -58,8 +58,6 @@
 // Section: Global Data
 
 volatile static I2C_CLIENT_OBJ i2c1Obj;
-void I2C1E_InterruptHandler(void);
-void I2C1_InterruptHandler(void);
 
 void I2C1_Initialize(void)
 {
@@ -100,12 +98,12 @@ void I2C1_Initialize(void)
 
 void I2C1_Deinitialize(void)
 {
-    /* Turn on the I2C module */
+    /* Turn off the I2C module */
     I2C1CON1bits.ON = 0U;
     
-    /* Enable the I2C Bus collision interrupt */
+    /* Disable the I2C Bus collision interrupt */
     _I2C1EIE = 0U;
-    /* Enable the I2C Client interrupt */
+    /* Disable the I2C Client interrupt */
     _I2C1IE = 0U;
     
     I2C1CON1 = (_I2C1CON1_SCLREL_MASK);
@@ -204,11 +202,8 @@ static void I2C1_TransferSM(void)
         }
     }
     // Release clock stretch on 9th bit
-    if(I2C1CON1bits.STREN == 1U || I2C1CON1bits.SCLREL == 0U)
-    {
-        // Clock stretch release
-        I2C1CON1bits.SCLREL = 1U;
-    }
+    I2C1CON1bits.SCLREL = 1U;
+
 }
 
 void I2C1_CallbackRegister(I2C_CLIENT_CALLBACK callback, uintptr_t contextHandle)
@@ -246,7 +241,7 @@ I2C_CLIENT_TRANSFER_DIR I2C1_TransferDirGet(void)
 
 I2C_CLIENT_ACK_STATUS I2C1_LastByteAckStatusGet(void)
 {
-    return ((I2C1STAT1 & _I2C1STAT1_ACKSTAT_MASK) != 0U) ? I2C_CLIENT_ACK_STATUS_RECEIVED_NAK : I2C_CLIENT_ACK_STATUS_RECEIVED_ACK;
+    return ((I2C1STAT1 & _I2C1STAT1_ACKSTAT_MASK) != 0U) ? I2C_CLIENT_ACK_STAT_RECEIVED_NAK : I2C_CLIENT_ACK_STAT_RECEIVED_ACK;
 }
 
 I2C_CLIENT_ERROR I2C1_ErrorGet(void)
