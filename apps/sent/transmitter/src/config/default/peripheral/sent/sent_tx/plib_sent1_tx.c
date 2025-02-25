@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -49,9 +49,7 @@
 /*indicates the status of data transmission*/
 static volatile bool bDataTransmitted = true;
 
-/*ISR for SENT Tx interrupt*/
-void SENT1_InterruptHandler( void );
-volatile static SENT_TRANSMIT_COMPLETE_CALLBACK_OBJECT txCompleteObj;
+volatile static SENT_TRANSMIT_COMPLETE_OBJECT txCompleteObj;
 
 #define SENT1CON1_NIBCNT_ONE      ((uint32_t)(_SENT1CON1_NIBCNT_MASK & ((uint32_t)(1) << _SENT1CON1_NIBCNT_POSITION))) 
 #define SENT1CON1_NIBCNT_TWO      ((uint32_t)(_SENT1CON1_NIBCNT_MASK & ((uint32_t)(2) << _SENT1CON1_NIBCNT_POSITION))) 
@@ -110,7 +108,7 @@ void SENT1_Disable(void)
 
 void SENT1_TransmitModeSet(SENT_TRANSMIT_MODE mode)
 {
-  SENT1CON1bits.TXM = mode;
+  SENT1CON1bits.TXM = (uint8_t)mode;
 }
 
 void SENT1_Transmit(const SENT_DATA_TRANSMIT *sentData)
@@ -136,7 +134,7 @@ bool SENT1_IsTransmissionComplete(void)
 
 SENT_TRANSMIT_STATUS SENT1_TransmitStatusGet(void)
 {
-    return (SENT1STAT);
+    return (SENT_TRANSMIT_STATUS)SENT1STAT;
 }
 
 void SENT1_TransmitCompleteCallbackRegister(SENT_TRANSMIT_COMPLETE_CALLBACK callback_fn, uintptr_t context)
