@@ -16,7 +16,7 @@
  
 *******************************************************************************/
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -57,38 +57,38 @@
 
 
 /*** Macros for SWITCH pin ***/
-#define SWITCH_Set()               (LATB |= (1<<5))
-#define SWITCH_Clear()             (LATB &= ~(1<<5))
-#define SWITCH_Toggle()            (LATB ^= (1<<5))
-#define SWITCH_OutputEnable()      (TRISB &= ~(1<<5))
-#define SWITCH_InputEnable()       (TRISB |= (1<<5))
+#define SWITCH_Set()               (_LATB5 = 1U)
+#define SWITCH_Clear()             (_LATB5 = 0U)
+#define SWITCH_Toggle()            (_LATB5 ^= 1U)
+#define SWITCH_OutputEnable()      (_TRISB5 = 0U)
+#define SWITCH_InputEnable()       (_TRISB5 = 1U)
 #define SWITCH_Get()               ((PORTB >> 5) & 0x1)
 #define SWITCH_PIN                 GPIO_PIN_RB5
 
 /*** Macros for APP_CLIENT_BUSY_PIN pin ***/
-#define APP_CLIENT_BUSY_PIN_Set()               (LATB |= (1<<6))
-#define APP_CLIENT_BUSY_PIN_Clear()             (LATB &= ~(1<<6))
-#define APP_CLIENT_BUSY_PIN_Toggle()            (LATB ^= (1<<6))
-#define APP_CLIENT_BUSY_PIN_OutputEnable()      (TRISB &= ~(1<<6))
-#define APP_CLIENT_BUSY_PIN_InputEnable()       (TRISB |= (1<<6))
+#define APP_CLIENT_BUSY_PIN_Set()               (_LATB6 = 1U)
+#define APP_CLIENT_BUSY_PIN_Clear()             (_LATB6 = 0U)
+#define APP_CLIENT_BUSY_PIN_Toggle()            (_LATB6 ^= 1U)
+#define APP_CLIENT_BUSY_PIN_OutputEnable()      (_TRISB6 = 0U)
+#define APP_CLIENT_BUSY_PIN_InputEnable()       (_TRISB6 = 1U)
 #define APP_CLIENT_BUSY_PIN_Get()               ((PORTB >> 6) & 0x1)
 #define APP_CLIENT_BUSY_PIN_PIN                 GPIO_PIN_RB6
 
 /*** Macros for APP_CLIENT_CS pin ***/
-#define APP_CLIENT_CS_Set()               (LATB |= (1<<7))
-#define APP_CLIENT_CS_Clear()             (LATB &= ~(1<<7))
-#define APP_CLIENT_CS_Toggle()            (LATB ^= (1<<7))
-#define APP_CLIENT_CS_OutputEnable()      (TRISB &= ~(1<<7))
-#define APP_CLIENT_CS_InputEnable()       (TRISB |= (1<<7))
+#define APP_CLIENT_CS_Set()               (_LATB7 = 1U)
+#define APP_CLIENT_CS_Clear()             (_LATB7 = 0U)
+#define APP_CLIENT_CS_Toggle()            (_LATB7 ^= 1U)
+#define APP_CLIENT_CS_OutputEnable()      (_TRISB7 = 0U)
+#define APP_CLIENT_CS_InputEnable()       (_TRISB7 = 1U)
 #define APP_CLIENT_CS_Get()               ((PORTB >> 7) & 0x1)
 #define APP_CLIENT_CS_PIN                 GPIO_PIN_RB7
 
 /*** Macros for LED1 pin ***/
-#define LED1_Set()               (LATC |= (1<<3))
-#define LED1_Clear()             (LATC &= ~(1<<3))
-#define LED1_Toggle()            (LATC ^= (1<<3))
-#define LED1_OutputEnable()      (TRISC &= ~(1<<3))
-#define LED1_InputEnable()       (TRISC |= (1<<3))
+#define LED1_Set()               (_LATC3 = 1U)
+#define LED1_Clear()             (_LATC3 = 0U)
+#define LED1_Toggle()            (_LATC3 ^= 1U)
+#define LED1_OutputEnable()      (_TRISC3 = 0U)
+#define LED1_InputEnable()       (_TRISC3 = 1U)
 #define LED1_Get()               ((PORTC >> 3) & 0x1)
 #define LED1_PIN                 GPIO_PIN_RC3
     
@@ -367,7 +367,7 @@ static inline void GPIO_PinWrite(GPIO_PIN pin, bool value)
  */
 static inline bool GPIO_PinRead(GPIO_PIN pin)
 {
-    return (((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U);
+    return ((((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**
@@ -388,7 +388,7 @@ static inline bool GPIO_PinRead(GPIO_PIN pin)
  */
 static inline bool GPIO_PinLatchRead(GPIO_PIN pin)
 {
-    return ((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U);
+    return (((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**
