@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -56,99 +56,86 @@
 // *****************************************************************************
 
 /**
- @enum     PWM_GENERATOR
  @brief    Defines the PWM generators that are selected from the MCC Harmony User 
            Interface for the PWM output controls.
- @details  The `PWM_GENERATOR` enum represents the different PWM generators available for configuration 
+ @details  These macro's represents the different PWM generators available for configuration 
            through the MCC Harmony User Interface. These values correspond to specific hardware PWM generators 
            that can be used for generating PWM outputs. The generated list in the help documentation may not represent 
-           all the channels but is based on the user's configuration in the MCC Harmony tool.
+           all the generators but is based on the user's configuration in the MCC Harmony tool.
            The user should configure the PWM generators according to their application requirements.
            The generated enum list may vary depending on the specific PWM Generators are enabled in User Interface.
 */
-typedef enum
-{
-    PWM_GENERATOR_1 = 1,      /**< PWM generator 1*/
-    PWM_GENERATOR_2 = 2,      /**< PWM generator 2*/
-    PWM_GENERATOR_3 = 3,      /**< PWM generator 3*/
-    PWM_GENERATOR_4 = 4,      /**< PWM generator 4*/
-    PWM_MAX_GENERATOR
-}PWM_GENERATOR;
+#define    PWM_GENERATOR_1      1U      /**< PWM generator 1*/
+#define    PWM_GENERATOR_2      2U      /**< PWM generator 2*/
+#define    PWM_GENERATOR_3      3U      /**< PWM generator 3*/
+#define    PWM_GENERATOR_4      4U      /**< PWM generator 4*/
+
+typedef uint32_t PWM_GENERATOR;
 
 /**
- @enum     PWM_GENERATOR_INTERRUPT
  @brief    Defines the PWM generator interrupts that are available for the module to use.
  @details  Defines the PWM generator interrupts that are available for the module to use.
 */
-typedef enum 
-{
-    PWM_GENERATOR_INTERRUPT_FAULT         =  1,      /**< PWM Generator Fault Interrupt */ 
-    PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT =  2,      /**< PWM Generator Current Limit Interrupt */
-    PWM_GENERATOR_INTERRUPT_FEED_FORWARD  =  3,      /**< PWM Generator Feed Forward Interrupt */
-    PWM_GENERATOR_INTERRUPT_SYNC          =  4,      /**< PWM Generator Sync Interrupt */
-}PWM_GENERATOR_INTERRUPT;
+#define    PWM_GENERATOR_INTERRUPT_FAULT           1U      /**< PWM Generator Fault Interrupt */ 
+#define    PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT   2U      /**< PWM Generator Current Limit Interrupt */
+#define    PWM_GENERATOR_INTERRUPT_FEED_FORWARD    3U      /**< PWM Generator Feed Forward Interrupt */
+#define    PWM_GENERATOR_INTERRUPT_SYNC            4U      /**< PWM Generator Sync Interrupt */
+
+typedef uint32_t PWM_GENERATOR_INTERRUPT;
 
 /**
- @enum     PWM_TRIGGER_COMPARE
  @brief    Defines the PWM generator Trigger Compare registers 
            that are available for the module to use.
- @details  This enum defines the registers used to trigger compare events for the PWM generator. 
+ @details  These macro's defines the registers used to trigger compare events for the PWM generator. 
            The trigger compare registers (A, B, C) are used to set the conditions for when the PWM generator should update or trigger an event.
            These registers are essential for controlling the timing and synchronization of the PWM signals and the system's response to those signals.
 */
-typedef enum 
-{
-    PWM_TRIGGER_COMPARE_A = 1,         /**< PWM Trigger Compare A Register */
-    PWM_TRIGGER_COMPARE_B = 2,         /**< PWM Trigger Compare B Register */
-    PWM_TRIGGER_COMPARE_C = 3,         /**< PWM Trigger Compare C Register */
-}PWM_TRIGGER_COMPARE;
+#define    PWM_TRIGGER_COMPARE_A    1U         /**< PWM Trigger Compare A Register */
+#define    PWM_TRIGGER_COMPARE_B    2U         /**< PWM Trigger Compare B Register */
+#define    PWM_TRIGGER_COMPARE_C    3U         /**< PWM Trigger Compare C Register */
+
+typedef uint32_t PWM_TRIGGER_COMPARE;
 
 /**
- @enum     PWM_MODES
  @brief    Defines the PWM generator operating modes that are available.
- @details  The `PWM_MODES` enum specifies various operating modes for the PWM generator. 
+ @details  These macro's specifies various operating modes for the PWM generator. 
            These modes control how the PWM signal is generated, including independent edge modes, 
            center-aligned modes, and dual-edge modes. 
            Each mode provides different timing characteristics for the PWM signal, 
            which may be useful for applications requiring precise control of the signal's rise, fall, or center alignment.
            The modes available in this enum can be selected based on the specific requirements of the application.
 */
-typedef enum 
-{
-    PWM_MODE_INDEPENDENT_EDGE =  0x0,       /**< Independent Edge mode*/
-    PWM_MODE_VARIABLE_PHASE =  0x1,       /**< Variable Phase mode*/
-    PWM_MODE_INDEPENDENT_EDGE_DUAL_OUTPUT =  0x2,       /**< Independent Edge, dual output mode*/
-    PWM_MODE_CENTER_ALIGNED =  0x4,       /**< Center-Aligned mode*/
-    PWM_MODE_DOUBLE_UPDATE_CENTER_ALIGNED =  0x5,       /**< Double-Update Center-Aligned mode*/
-    PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_ONE_UPDATE_CYCLE =  0x6,       /**< Dual Edge Center-Aligned;one update/cycle mode*/
-    PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_TWO_UPDATES_CYCLE =  0x7,       /**< Dual Edge Center-Aligned;two updates/cycle mode*/
-}PWM_MODES;
+#define    PWM_MODE_INDEPENDENT_EDGE                          0x0U       /**< Independent Edge mode*/
+#define    PWM_MODE_VARIABLE_PHASE                            0x1U       /**< Variable Phase mode*/
+#define    PWM_MODE_INDEPENDENT_EDGE_DUAL_OUTPUT              0x2U       /**< Independent Edge, dual output mode*/
+#define    PWM_MODE_CENTER_ALIGNED                            0x4U       /**< Center-Aligned mode*/
+#define    PWM_MODE_DOUBLE_UPDATE_CENTER_ALIGNED              0x5U       /**< Double-Update Center-Aligned mode*/
+#define    PWM_MODE_DUALEDGE_CTR_ALIGNED_ONE_UPDATE_CYCLE     0x6U       /**< Dual Edge Center-Aligned;one update/cycle mode*/
+#define    PWM_MODE_DUALEDGE_CTR_ALIGNED_TWO_UPDATES_CYCLE    0x7U       /**< Dual Edge Center-Aligned;two updates/cycle mode*/
+
+typedef uint32_t PWM_MODES;
 
 /**
- @enum     PWM_OUTPUT_MODES
  @brief    Defines the PWM generator output modes that are available.
- @details  The `PWM_HS_OUTPUT_MODES` enum defines the different output configurations for the PWM generator. 
+ @details  These macro's defines the different output configurations for the PWM generator. 
            The output modes control whether the PWM signals are generated in complementary, independent, or push-pull mode. 
            These output modes are essential for driving external devices or circuits, and the choice of output mode 
            depends on the hardware and the requirements of the system being controlled.
 */
-typedef enum 
-{
-    COMPLEMENTARY_OUTPUT_MODE = 0x0,         /**< Complementary mode output mode*/
-    INDEPENDENT_OUTPUT_MODE = 0x1,           /**< Independent mode output mode*/
-    PUSH_PULL_OUTPUT_MODE = 0x2,             /**< Push-Pull mode output mode*/
-}PWM_OUTPUT_MODES;
+#define    COMPLEMENTARY_OUTPUT_MODE   0x0U         /**< Complementary mode output mode*/
+#define    INDEPENDENT_OUTPUT_MODE     0x1U         /**< Independent mode output mode*/
+#define    PUSH_PULL_OUTPUT_MODE       0x2U         /**< Push-Pull mode output mode*/
 
-/**
- @enum     PWM_SOURCE_SELECT    
+typedef uint32_t PWM_OUTPUT_MODES;
+
+/**    
  @brief    Defines the PWM generator Master or Independent source selection.
- @details  The `PWM_SOURCE_SELECT` enum allows the user to select whether the PWM generator will operate in a master or independent source. 
+ @details  These macro's allows the user to select whether the PWM generator will operate in a master or independent source. 
 */
-typedef enum 
-{
-    PWM_SOURCE_SELECT_INDEPENDENT = 0,         /**< PWM select Independent PWM as source */
-    PWM_SOURCE_SELECT_MASTER = 1,             /**< PWM select Master as source */
-}PWM_SOURCE_SELECT;
+#define    PWM_SOURCE_SELECT_INDEPENDENT   0U         /**< PWM select Independent PWM as source */
+#define    PWM_SOURCE_SELECT_MASTER        1U         /**< PWM select Master as source */
+
+typedef uint32_t PWM_SOURCE_SELECT;
 
 /**
  * @brief    Callback function type for  PWM generator End of Conversion (EOC) event.
@@ -170,10 +157,10 @@ typedef enum
  *      
  * }
  * 
- * PWM_GENERATOR_EOC_EVENT_CALLBACK callback = my_callback;
+ * PWM_GEN_EOC_EVENT_CALLBACK callback = my_callback;
  * @endcode
  */
-typedef  void (*PWM_GENERATOR_EOC_EVENT_CALLBACK) (PWM_GENERATOR genNum, uintptr_t context);
+typedef  void (*PWM_GEN_EOC_EVENT_CALLBACK) (PWM_GENERATOR genNum, uintptr_t context);
 
 /**
  @struct   EXT_INT_PIN_CALLBACK_OBJ
@@ -182,11 +169,11 @@ typedef  void (*PWM_GENERATOR_EOC_EVENT_CALLBACK) (PWM_GENERATOR genNum, uintptr
 */
 typedef struct
 {
-    PWM_GENERATOR_EOC_EVENT_CALLBACK            callback;
+    PWM_GEN_EOC_EVENT_CALLBACK            callback;
     
     uintptr_t                                   context;
     
-}PWM_GENERATOR_EOC_EVENT_CALLBACK_OBJ;
+}PWM_GEN_EOC_EVENT_CALLBACK_OBJ;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -236,7 +223,9 @@ inline static void PWM_GeneratorEnable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4CONbits.ON = 1U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -262,7 +251,9 @@ inline static void PWM_GeneratorDisable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4CONbits.ON = 0U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -279,18 +270,20 @@ inline static void PWM_ModeSet(PWM_GENERATOR genNum, PWM_MODES mode)
 {
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                PG1CONbits.MODSEL = mode; 
+                PG1CONbits.MODSEL = (uint8_t)mode; 
                 break;
         case PWM_GENERATOR_2:
-                PG2CONbits.MODSEL = mode; 
+                PG2CONbits.MODSEL = (uint8_t)mode; 
                 break;
         case PWM_GENERATOR_3:
-                PG3CONbits.MODSEL = mode; 
+                PG3CONbits.MODSEL = (uint8_t)mode; 
                 break;
         case PWM_GENERATOR_4:
-                PG4CONbits.MODSEL = mode; 
+                PG4CONbits.MODSEL = (uint8_t)mode; 
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -307,18 +300,20 @@ inline static void PWM_OutputModeSet(PWM_GENERATOR genNum, PWM_OUTPUT_MODES outp
 {
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                PG1IOCONbits.PMOD = outputMode; 
+                PG1IOCONbits.PMOD = (uint8_t)outputMode; 
                 break;
         case PWM_GENERATOR_2:
-                PG2IOCONbits.PMOD = outputMode; 
+                PG2IOCONbits.PMOD = (uint8_t)outputMode; 
                 break;
         case PWM_GENERATOR_3:
-                PG3IOCONbits.PMOD = outputMode; 
+                PG3IOCONbits.PMOD = (uint8_t)outputMode; 
                 break;
         case PWM_GENERATOR_4:
-                PG4IOCONbits.PMOD = outputMode; 
+                PG4IOCONbits.PMOD = (uint8_t)outputMode; 
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -421,7 +416,9 @@ inline static void PWM_PeriodSet(PWM_GENERATOR genNum,uint32_t period)
         case PWM_GENERATOR_4:
                 PG4PER = period & 0x000FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -450,7 +447,9 @@ inline static void PWM_DutyCycleSet(PWM_GENERATOR genNum,uint32_t dutyCycle)
         case PWM_GENERATOR_4:
                 PG4DC = dutyCycle & 0x000FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -467,18 +466,20 @@ inline static void PWM_PhaseSelect(PWM_GENERATOR genNum,PWM_SOURCE_SELECT source
 {
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                PG1CONbits.MPHSEL = source;
+                PG1CONbits.MPHSEL = (uint8_t)source;
                 break;
         case PWM_GENERATOR_2:
-                PG2CONbits.MPHSEL = source;
+                PG2CONbits.MPHSEL = (uint8_t)source;
                 break;
         case PWM_GENERATOR_3:
-                PG3CONbits.MPHSEL = source;
+                PG3CONbits.MPHSEL = (uint8_t)source;
                 break;
         case PWM_GENERATOR_4:
-                PG4CONbits.MPHSEL = source;
+                PG4CONbits.MPHSEL = (uint8_t)source;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -507,7 +508,9 @@ inline static void PWM_PhaseSet(PWM_GENERATOR genNum,uint32_t phase)
         case PWM_GENERATOR_4:
                 PG4PHASE = phase & 0x000FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }     
 }
 
@@ -525,18 +528,20 @@ inline static void PWM_OverrideDataSet(PWM_GENERATOR genNum,uint16_t overrideDat
 {
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                PG1IOCONbits.OVRDAT = overrideData;
+                PG1IOCONbits.OVRDAT = (uint8_t)overrideData;
                 break;
         case PWM_GENERATOR_2:
-                PG2IOCONbits.OVRDAT = overrideData;
+                PG2IOCONbits.OVRDAT = (uint8_t)overrideData;
                 break;
         case PWM_GENERATOR_3:
-                PG3IOCONbits.OVRDAT = overrideData;
+                PG3IOCONbits.OVRDAT = (uint8_t)overrideData;
                 break;
         case PWM_GENERATOR_4:
-                PG4IOCONbits.OVRDAT = overrideData;
+                PG4IOCONbits.OVRDAT = (uint8_t)overrideData;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -554,18 +559,20 @@ inline static void PWM_OverrideDataHighSet(PWM_GENERATOR genNum,bool overrideDat
     switch(genNum) 
     { 
         case PWM_GENERATOR_1:
-                PG1IOCONbits.OVRDAT = (PG1IOCONbits.OVRDAT & 0x1) | ((uint8_t)overrideDataHigh << 0x1);
+                PG1IOCONbits.OVRDAT = (uint8_t)((PG1IOCONbits.OVRDAT & 0x1U) | ((uint8_t)overrideDataHigh << 0x1U));
                 break;
         case PWM_GENERATOR_2:
-                PG2IOCONbits.OVRDAT = (PG2IOCONbits.OVRDAT & 0x1) | ((uint8_t)overrideDataHigh << 0x1);
+                PG2IOCONbits.OVRDAT = (uint8_t)((PG2IOCONbits.OVRDAT & 0x1U) | ((uint8_t)overrideDataHigh << 0x1U));
                 break;
         case PWM_GENERATOR_3:
-                PG3IOCONbits.OVRDAT = (PG3IOCONbits.OVRDAT & 0x1) | ((uint8_t)overrideDataHigh << 0x1);
+                PG3IOCONbits.OVRDAT = (uint8_t)((PG3IOCONbits.OVRDAT & 0x1U) | ((uint8_t)overrideDataHigh << 0x1U));
                 break;
         case PWM_GENERATOR_4:
-                PG4IOCONbits.OVRDAT = (PG4IOCONbits.OVRDAT & 0x1) | ((uint8_t)overrideDataHigh << 0x1);
+                PG4IOCONbits.OVRDAT = (uint8_t)((PG4IOCONbits.OVRDAT & 0x1U) | ((uint8_t)overrideDataHigh << 0x1U));
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -582,18 +589,20 @@ inline static void PWM_OverrideDataLowSet(PWM_GENERATOR genNum,bool overrideData
 {
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                PG1IOCONbits.OVRDAT = (PG1IOCONbits.OVRDAT & 0x2) | overrideDataLow;
+                PG1IOCONbits.OVRDAT = (uint8_t)((PG1IOCONbits.OVRDAT & 0x2U) | overrideDataLow);
                 break;
         case PWM_GENERATOR_2:
-                PG2IOCONbits.OVRDAT = (PG2IOCONbits.OVRDAT & 0x2) | overrideDataLow;
+                PG2IOCONbits.OVRDAT = (uint8_t)((PG2IOCONbits.OVRDAT & 0x2U) | overrideDataLow);
                 break;
         case PWM_GENERATOR_3:
-                PG3IOCONbits.OVRDAT = (PG3IOCONbits.OVRDAT & 0x2) | overrideDataLow;
+                PG3IOCONbits.OVRDAT = (uint8_t)((PG3IOCONbits.OVRDAT & 0x2U) | overrideDataLow);
                 break;
         case PWM_GENERATOR_4:
-                PG4IOCONbits.OVRDAT = (PG4IOCONbits.OVRDAT & 0x2) | overrideDataLow;
+                PG4IOCONbits.OVRDAT = (uint8_t)((PG4IOCONbits.OVRDAT & 0x2U) | overrideDataLow);
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -623,7 +632,9 @@ inline static uint16_t PWM_OverrideDataGet(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 overrideData = PG4IOCONbits.OVRDAT;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
     return overrideData;
 }
@@ -651,7 +662,9 @@ inline static void PWM_OverrideHighEnable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4IOCONbits.OVRENH = 1U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -678,7 +691,9 @@ inline static void PWM_OverrideLowEnable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4IOCONbits.OVRENL = 1U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -705,7 +720,9 @@ inline static void PWM_OverrideHighDisable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4IOCONbits.OVRENH = 0U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -732,7 +749,9 @@ inline static void PWM_OverrideLowDisable(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4IOCONbits.OVRENL = 0U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -761,7 +780,9 @@ inline static void PWM_DeadTimeLowSet(PWM_GENERATOR genNum,uint16_t deadtimeLow)
         case PWM_GENERATOR_4:
                 PG4DT = (PG4DT & 0xFFFF0000UL) | (deadtimeLow & (uint16_t)0x7FFF);
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -790,7 +811,9 @@ inline static void PWM_DeadTimeHighSet(PWM_GENERATOR genNum,uint16_t deadtimeHig
         case PWM_GENERATOR_4:
                 PG4DT = (((uint32_t)deadtimeHigh & (uint16_t)0x7FFF) << 16) | (uint16_t)PG4DT;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -819,7 +842,9 @@ inline static void PWM_DeadTimeSet(PWM_GENERATOR genNum,uint16_t deadtime)
         case PWM_GENERATOR_4:
                 PG4DT = (((uint32_t)deadtime & (uint16_t)0x7FFF) << 16) | ((uint32_t)deadtime & (uint16_t)0x7FFF);
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -849,7 +874,9 @@ inline static void PWM_TriggerCompareValueSet(PWM_GENERATOR genNum,uint32_t trig
         case PWM_GENERATOR_4:
                 PG4TRIGA = trigCompValue & 0x000FFFF0UL;  
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -877,7 +904,9 @@ inline static void PWM_GeneratorInterruptEnable(PWM_GENERATOR genNum, PWM_GENERA
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG1EVTbits.SIEN = 1U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_2:
@@ -894,7 +923,9 @@ inline static void PWM_GeneratorInterruptEnable(PWM_GENERATOR genNum, PWM_GENERA
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG2EVTbits.SIEN = 1U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_3:
@@ -911,7 +942,9 @@ inline static void PWM_GeneratorInterruptEnable(PWM_GENERATOR genNum, PWM_GENERA
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG3EVTbits.SIEN = 1U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_4:
@@ -928,10 +961,14 @@ inline static void PWM_GeneratorInterruptEnable(PWM_GENERATOR genNum, PWM_GENERA
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG4EVTbits.SIEN = 1U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }
                 break;   
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -959,7 +996,9 @@ inline static void PWM_GeneratorInterruptDisable(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG1EVTbits.SIEN = 0U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_2:
@@ -976,7 +1015,9 @@ inline static void PWM_GeneratorInterruptDisable(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG2EVTbits.SIEN = 0U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_3:
@@ -993,7 +1034,9 @@ inline static void PWM_GeneratorInterruptDisable(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG3EVTbits.SIEN = 0U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }
                 break;   
         case PWM_GENERATOR_4:
@@ -1010,10 +1053,14 @@ inline static void PWM_GeneratorInterruptDisable(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG4EVTbits.SIEN = 0U;
                                         break;                                                        
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }
                 break;   
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -1041,7 +1088,9 @@ inline static void PWM_GeneratorEventStatusClear(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG1STATbits.SEVT = 0U;
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_2:
@@ -1058,7 +1107,9 @@ inline static void PWM_GeneratorEventStatusClear(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG2STATbits.SEVT = 0U;
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_3:
@@ -1075,7 +1126,9 @@ inline static void PWM_GeneratorEventStatusClear(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG3STATbits.SEVT = 0U;
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_4:
@@ -1092,10 +1145,14 @@ inline static void PWM_GeneratorEventStatusClear(PWM_GENERATOR genNum, PWM_GENER
                         case PWM_GENERATOR_INTERRUPT_SYNC:
                                         PG4STATbits.SEVT = 0U;
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */  
+                            break;  
                 }              
                 break; 
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -1114,72 +1171,82 @@ inline static bool PWM_GeneratorEventStatusGet(PWM_GENERATOR genNum, PWM_GENERAT
         case PWM_GENERATOR_1:
                 switch(interrupt) { 
                         case PWM_GENERATOR_INTERRUPT_FAULT:
-                                        status = PG1STATbits.FLTEVT;
+                                        status = (PG1STATbits.FLTEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT:
-                                        status = PG1STATbits.CLEVT;
+                                        status = (PG1STATbits.CLEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_FEED_FORWARD:
-                                        status = PG1STATbits.FFEVT;
+                                        status = (PG1STATbits.FFEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_SYNC:
-                                        status = PG1STATbits.SEVT;
+                                        status = (PG1STATbits.SEVT != 0U);
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_2:
                 switch(interrupt) { 
                         case PWM_GENERATOR_INTERRUPT_FAULT:
-                                        status = PG2STATbits.FLTEVT;
+                                        status = (PG2STATbits.FLTEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT:
-                                        status = PG2STATbits.CLEVT;
+                                        status = (PG2STATbits.CLEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_FEED_FORWARD:
-                                        status = PG2STATbits.FFEVT;
+                                        status = (PG2STATbits.FFEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_SYNC:
-                                        status = PG2STATbits.SEVT;
+                                        status = (PG2STATbits.SEVT != 0U);
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_3:
                 switch(interrupt) { 
                         case PWM_GENERATOR_INTERRUPT_FAULT:
-                                        status = PG3STATbits.FLTEVT;
+                                        status = (PG3STATbits.FLTEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT:
-                                        status = PG3STATbits.CLEVT;
+                                        status = (PG3STATbits.CLEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_FEED_FORWARD:
-                                        status = PG3STATbits.FFEVT;
+                                        status = (PG3STATbits.FFEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_SYNC:
-                                        status = PG3STATbits.SEVT;
+                                        status = (PG3STATbits.SEVT != 0U);
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }              
                 break; 
         case PWM_GENERATOR_4:
                 switch(interrupt) { 
                         case PWM_GENERATOR_INTERRUPT_FAULT:
-                                        status = PG4STATbits.FLTEVT;
+                                        status = (PG4STATbits.FLTEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT:
-                                        status = PG4STATbits.CLEVT;
+                                        status = (PG4STATbits.CLEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_FEED_FORWARD:
-                                        status = PG4STATbits.FFEVT;
+                                        status = (PG4STATbits.FFEVT != 0U);
                                         break;
                         case PWM_GENERATOR_INTERRUPT_SYNC:
-                                        status = PG4STATbits.SEVT;
+                                        status = (PG4STATbits.SEVT != 0U);
                                         break;
-                        default:break;  
+                        default:
+                            /* Invalid Interrupt type, do nothing */ 
+                            break;  
                 }              
                 break; 
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
     return status;
 }
@@ -1210,7 +1277,9 @@ inline static void PWM_SoftwareUpdateRequest(PWM_GENERATOR genNum)
         case PWM_GENERATOR_4:
                 PG4STATbits.UPDREQ = 1U;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 
 }
@@ -1231,18 +1300,20 @@ inline static bool PWM_SoftwareUpdatePending(PWM_GENERATOR genNum)
     bool status = false;
     switch(genNum) { 
         case PWM_GENERATOR_1:
-                status = PG1STATbits.UPDREQ;
+                status = (PG1STATbits.UPDREQ != 0U);
                 break;       
         case PWM_GENERATOR_2:
-                status = PG2STATbits.UPDREQ;
+                status = (PG2STATbits.UPDREQ != 0U);
                 break;       
         case PWM_GENERATOR_3:
-                status = PG3STATbits.UPDREQ;
+                status = (PG3STATbits.UPDREQ != 0U);
                 break;       
         case PWM_GENERATOR_4:
-                status = PG4STATbits.UPDREQ;
+                status = (PG4STATbits.UPDREQ != 0U);
                 break;       
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
     return status;
 }
@@ -1273,7 +1344,9 @@ inline static void PWM_TriggerACompareValueSet(PWM_GENERATOR genNum,uint32_t tri
         case PWM_GENERATOR_4:
                 PG4TRIGA = trigA & 0x800FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -1304,7 +1377,9 @@ inline static void PWM_TriggerBCompareValueSet(PWM_GENERATOR genNum,uint32_t tri
         case PWM_GENERATOR_4:
                 PG4TRIGB = trigB & 0x800FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -1335,7 +1410,9 @@ inline static void PWM_TriggerCCompareValueSet(PWM_GENERATOR genNum,uint32_t tri
         case PWM_GENERATOR_4:
                 PG4TRIGC = trigC & 0x800FFFF0UL;
                 break;
-        default:break;
+        default:
+            /* Invalid PWM Generator, do nothing */ 
+            break;
     }
 }
 
@@ -1369,7 +1446,7 @@ inline static void PWM_TriggerCCompareValueSet(PWM_GENERATOR genNum,uint32_t tri
  */
 bool PWM_EOCEventCallbackRegister(
     PWM_GENERATOR genNum,
-    const PWM_GENERATOR_EOC_EVENT_CALLBACK callback,
+    const PWM_GEN_EOC_EVENT_CALLBACK callback,
     uintptr_t context );
 
 #endif //PWM_H
