@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -115,10 +115,6 @@ typedef enum {
 
 static uint16_t ADC1_TriggerSourceValueGet(ADC1_PWM_INSTANCE pwmInstance, ADC_PWM_TRIGGERS triggerNumber);
 
-// Section: ISR declaration
-
-void AD1CH0_InterruptHandler(void);
-
 // Section: ADC1 Implementation
 
 void ADC1_Initialize(void)
@@ -174,14 +170,6 @@ void ADC1_Deinitialize(void)
     
 }
 
-void ADC1_SharedCoreCalibration (void) 
-{
-    AD1CONbits.CALREQ = 1U;    
-    while(AD1CONbits.CALRDY == 0U)
-    {
-    }  
-}
-
 static uint16_t ADC1_TriggerSourceValueGet(ADC1_PWM_INSTANCE pwmInstance, ADC_PWM_TRIGGERS triggerNumber)
 {
     uint16_t adcTriggerSourceValue = 0x0U;
@@ -190,17 +178,19 @@ static uint16_t ADC1_TriggerSourceValueGet(ADC1_PWM_INSTANCE pwmInstance, ADC_PW
         case ADC1_PWM4:
                 if(triggerNumber == ADC_PWM_TRIGGER_1)
                 {
-                    adcTriggerSourceValue = PWM4_TRIGGER1;
+                    adcTriggerSourceValue = (uint16_t)PWM4_TRIGGER1;
                 }
                 else if(triggerNumber == ADC_PWM_TRIGGER_2)
                 {
-                    adcTriggerSourceValue = PWM4_TRIGGER2;
+                    adcTriggerSourceValue = (uint16_t)PWM4_TRIGGER2;
                 }
                 else
                 {
+                    /*Do Nothing*/
                 }
                 break;
          default:
+                /*Do Nothing*/
                 break;
     }
     return adcTriggerSourceValue;
@@ -213,9 +203,10 @@ void ADC1_PWMTriggerSourceSet(ADC1_CHANNEL channel, ADC1_PWM_INSTANCE pwmInstanc
     switch(channel)
     {
         case ADC1_CHANNEL0:
-                AD1CH0CONbits.TRG1SRC = adcTriggerValue;
+                AD1CH0CONbits.TRG1SRC = (uint8_t)adcTriggerValue;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
 }
@@ -226,11 +217,6 @@ void ADC1_ChannelCallbackRegister(ADC1_CHANNEL channel,ADC_CHANNEL_CALLBACK call
     adc1ChannelObj[channel].context = context;
 } 
 
-void ADC1_ComparatorCallbackRegister(ADC1_CHANNEL channel,ADC_CMP_CALLBACK callback,uintptr_t context)
-{
-    adc1CmpObj[channel].callback = callback;
-    adc1CmpObj[channel].context = context;
-}
 
 void AD1CH0_InterruptHandler(void)
 {

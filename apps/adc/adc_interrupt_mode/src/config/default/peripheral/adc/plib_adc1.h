@@ -17,7 +17,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -150,6 +150,7 @@ inline static void ADC1_ChannelSoftwareTriggerEnable(ADC1_CHANNEL channel)
                 AD1SWTRGbits.CH0TRG = 0x1U;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
 }
@@ -172,6 +173,7 @@ inline static uint32_t ADC1_ChannelResultGet(ADC1_CHANNEL channel)
                 result = AD1CH0DATA;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
     return result;
@@ -194,9 +196,10 @@ inline static bool ADC1_ChannelResultIsReady(ADC1_CHANNEL channel)
     switch(channel)
     {
         case ADC1_CHANNEL0:
-                status = AD1STATbits.CH0RDY;
+                status = AD1STATbits.CH0RDY == 1U;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
     return status;
@@ -215,6 +218,7 @@ inline static void ADC1_ChannelResultInterruptEnable(ADC1_CHANNEL channel)
                 IEC4bits.AD1CH0IE = 1;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
 }
@@ -232,6 +236,7 @@ inline static void ADC1_ChannelResultInterruptDisable(ADC1_CHANNEL channel)
                 IEC4bits.AD1CH0IE = 0;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
 }
@@ -252,6 +257,7 @@ inline static void ADC1_ChannelResultFlagClear(ADC1_CHANNEL channel)
                 IFS4bits.AD1CH0IF = 0;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
 }
@@ -264,17 +270,18 @@ inline static void ADC1_ChannelResultFlagClear(ADC1_CHANNEL channel)
  */
 inline static bool ADC1_CompareStatusGet(ADC1_CHANNEL channel)
 {
-    bool status;
+    bool status = false;
     switch(channel)
     {
         case ADC1_CHANNEL0:
-                status = AD1CMPSTATbits.CH0CMP;
+                status = AD1CMPSTATbits.CH0CMP == 1U;
                 //Clear status flag
                 AD1CMPSTATbits.CH0CMP = 0U;
                 //clear the CMP 0 interrupt flag
                 IFS4bits.AD1CMP0IF = 0U;
                 break;
         default:
+                /*Do Nothing*/
                 break;
     }
     return status;
@@ -291,9 +298,10 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(ADC1_CHANNEL chann
 	switch(channel)
 	{
 		case ADC1_CHANNEL0:
-				_AD1CH0IP = priorityValue;
+				_AD1CH0IP = (uint8_t)priorityValue;
 				break;
 		default:
+                /*Do Nothing*/
 				break;
 	}
 }
@@ -309,23 +317,6 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(ADC1_CHANNEL chann
  */
 void ADC1_ChannelCallbackRegister(ADC1_CHANNEL channel,ADC_CHANNEL_CALLBACK callback,uintptr_t context);
 
-/**
- * @brief      This function can be used to define custom callback for ADC1 Comparator event
- * @pre        none
- * @param[in]  channel - Selected channel.  
- * @param[in]  callback - Address of the comparator callback function.  
- * @param[in]  context - A value (usually a pointer) passed (unused) into the function identified by the callback parameter.  
- * @return     none  
- */
-void ADC1_ComparatorCallbackRegister(ADC1_CHANNEL channel,ADC_CMP_CALLBACK callback,uintptr_t context);
-
-/**
- * @brief    Calibrates the ADC1 Core
- * @pre      none 
- * @param    none
- * @return   none  
- */
-void ADC1_SharedCoreCalibration(void);
 
 /**
  * @brief    Sets Trigger source as PWM Trigger 
