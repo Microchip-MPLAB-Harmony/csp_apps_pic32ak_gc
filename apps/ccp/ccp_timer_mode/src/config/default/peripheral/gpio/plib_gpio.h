@@ -16,7 +16,7 @@
  
 *******************************************************************************/
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -349,7 +349,7 @@ static inline void GPIO_PinWrite(GPIO_PIN pin, bool value)
  */
 static inline bool GPIO_PinRead(GPIO_PIN pin)
 {
-    return (((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U);
+    return ((((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**
@@ -370,7 +370,7 @@ static inline bool GPIO_PinRead(GPIO_PIN pin)
  */
 static inline bool GPIO_PinLatchRead(GPIO_PIN pin)
 {
-    return ((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U);
+    return (((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**

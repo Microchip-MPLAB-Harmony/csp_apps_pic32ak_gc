@@ -14,7 +14,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -44,28 +44,27 @@
 
 // Section: Data Type Definitions
 
+#define TRAPS_ILLEGAL_INSTRUCTION   (0U)  /**< Illegal Instruction Trap  */
+#define TRAPS_ADDRESS_ERR           (1U)  /**< Address error Trap  */
+#define TRAPS_STACK_ERR             (2U)  /**< Stack Error Trap  */
+#define TRAPS_BUS_CPU_X_ERR         (3U)  /**< Bus CPU X Data Error Trap  */
+#define TRAPS_BUS_CPU_Y_ERR         (4U)  /**< Bus CPU Y Data Error Trap  */
+#define TRAPS_BUS_DMA_ERR           (5U)  /**< Bus DMA Error Trap  */
+#define TRAPS_BUS_CPU_INSTR_ERR     (6U)  /**< Bus CPU Instruction Error Trap  */
+#define TRAPS_DIV0_ERR              (7U)  /**< Divide by zero Error Trap  */
+#define TRAPS_DMT_ERR               (8U)  /**< Generic DMT Error Trap  */
+#define TRAPS_WDT_ERR               (9U)  /**< Generic WDT Error Trap  */
+#define TRAPS_XRAM_ERR              (10U) /**< Generic XRAM PWB DED Error Trap  */
+#define TRAPS_YRAM_ERR              (11U) /**< Generic XRAM PWB DED Error Trap  */
+#define TRAPS_SOFT_ERR              (12U) /**< Generic Soft Trap  */
+
 /**
- @ingroup  trapsdriver
- @enum     TRAPS_ERROR_CODE
- @brief    Defines the TRAPS error codes
-*/
-enum TRAPS_ERROR_CODE 
-{
-    // Traps
-    TRAPS_ILLEGAL_INSTRUCTION = 0,  /**< Illegal Instruction Trap vector */
-    TRAPS_ADDRESS_ERR = 1,          /**< Address error Trap vector */
-    TRAPS_STACK_ERR = 2,            /**< Stack Error Trap vector */
-    TRAPS_BUS_CPU_X_ERR = 3,        /**< Bus CPU X Data Error Trap Vector */
-    TRAPS_BUS_CPU_Y_ERR = 4,        /**< Bus CPU Y Data Error Trap Vector */
-    TRAPS_BUS_DMA_ERR = 5,          /**< Bus DMA Error Trap Vector */
-    TRAPS_BUS_CPU_INSTR_ERR = 6,    /**< Bus CPU Instruction Error Trap Vector */
-    TRAPS_DIV0_ERR = 7,             /**< Divide by zero Error Trap vector */
-    TRAPS_DMT_ERR = 8,              /**< Generic DMT Error Trap vector */
-    TRAPS_WDT_ERR = 9,              /**< Generic WDT Error Trap vector */
-    TRAPS_XRAM_ERR = 10,            /**< Generic XRAM PWB DED Error Trap vector */
-    TRAPS_YRAM_ERR = 11,            /**< Generic XRAM PWB DED Error Trap vector */
-    TRAPS_SOFT_ERR = 12,            /**< Generic Soft Trap vector */
-};
+ * @brief    TRAPS error codes Type Definition
+ *
+ * Defines the type used to represent TRAPS error codes in the system. 
+ * The value corresponds to various TRAPS error codes available in the device.
+ */
+typedef uint32_t TRAPS_ERROR_CODE;
 
 // Section: Driver Interface Function
 
