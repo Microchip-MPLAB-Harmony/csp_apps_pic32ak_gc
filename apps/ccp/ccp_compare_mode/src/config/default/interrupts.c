@@ -20,7 +20,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -62,6 +62,7 @@
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
 // Section: System Interrupt Vector declarations
 
+
 void _CCT2Interrupt (void);
 void _CCT4Interrupt (void);
 
@@ -76,7 +77,6 @@ void __attribute__ (( interrupt, no_auto_psv)) _CCT4Interrupt (void)
 {
     CCT4_InterruptHandler();
 }
-
 
 
 
