@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -47,10 +47,6 @@
 #include "device.h"
 #include "interrupts.h"
 #include "plib_uart3.h"
-
-void U3E_InterruptHandler(void);
-void U3RX_InterruptHandler(void);
-void U3TX_InterruptHandler(void);
 
 // Section: UART3 Implementation
 
@@ -233,16 +229,16 @@ bool UART3_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
         if(setup->dataWidth == UART_DATA_8_BIT)
         {
             /* Configure UART3 mode with parity if mode is 8 bit */
-            U3CONbits.MODE = setup->parity;
+            U3CONbits.MODE = (uint8_t)setup->parity;
         }
         else
         {
             /* Configure UART3 mode to 7 bit */
-            U3CONbits.MODE = setup->dataWidth;
+            U3CONbits.MODE = (uint8_t)setup->dataWidth;
         }
 
         /* Configure UART3 mode */
-        U3CONbits.STP = setup->stopBits;
+        U3CONbits.STP = (uint8_t)setup->stopBits;
         
         /* Configure UART3 Baud Rate */
         U3BRG = uxbrg;
