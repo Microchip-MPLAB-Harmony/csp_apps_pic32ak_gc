@@ -16,7 +16,7 @@
  
 *******************************************************************************/
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -57,24 +57,33 @@
 
 
 /*** Macros for GPIO_RB6 pin ***/
-#define GPIO_RB6_Set()               (LATB |= (1<<6))
-#define GPIO_RB6_Clear()             (LATB &= ~(1<<6))
-#define GPIO_RB6_Toggle()            (LATB ^= (1<<6))
-#define GPIO_RB6_OutputEnable()      (TRISB &= ~(1<<6))
-#define GPIO_RB6_InputEnable()       (TRISB |= (1<<6))
+#define GPIO_RB6_Set()               (_LATB6 = 1U)
+#define GPIO_RB6_Clear()             (_LATB6 = 0U)
+#define GPIO_RB6_Toggle()            (_LATB6 ^= 1U)
+#define GPIO_RB6_OutputEnable()      (_TRISB6 = 0U)
+#define GPIO_RB6_InputEnable()       (_TRISB6 = 1U)
 #define GPIO_RB6_Get()               ((PORTB >> 6) & 0x1)
 #define GPIO_RB6_PIN                 GPIO_PIN_RB6
 
 /*** Macros for GPIO_RB7 pin ***/
-#define GPIO_RB7_Set()               (LATB |= (1<<7))
-#define GPIO_RB7_Clear()             (LATB &= ~(1<<7))
-#define GPIO_RB7_Toggle()            (LATB ^= (1<<7))
-#define GPIO_RB7_OutputEnable()      (TRISB &= ~(1<<7))
-#define GPIO_RB7_InputEnable()       (TRISB |= (1<<7))
+#define GPIO_RB7_Set()               (_LATB7 = 1U)
+#define GPIO_RB7_Clear()             (_LATB7 = 0U)
+#define GPIO_RB7_Toggle()            (_LATB7 ^= 1U)
+#define GPIO_RB7_OutputEnable()      (_TRISB7 = 0U)
+#define GPIO_RB7_InputEnable()       (_TRISB7 = 1U)
 #define GPIO_RB7_Get()               ((PORTB >> 7) & 0x1)
 #define GPIO_RB7_PIN                 GPIO_PIN_RB7
-#define GPIO_RB7_InterruptEnable()   (CNEN0B |= (1<<7))
-#define GPIO_RB7_InterruptDisable()  (CNEN0B &= ~(1<<7))
+#define GPIO_RB7_InterruptEnable()   (_CNEN0B7 = 1U)
+#define GPIO_RB7_InterruptDisable()  (_CNEN0B7 = 0U)
+
+/*** Macros for LED pin ***/
+#define LED_Set()               (_LATC3 = 1U)
+#define LED_Clear()             (_LATC3 = 0U)
+#define LED_Toggle()            (_LATC3 ^= 1U)
+#define LED_OutputEnable()      (_TRISC3 = 0U)
+#define LED_InputEnable()       (_TRISC3 = 1U)
+#define LED_Get()               ((PORTC >> 3) & 0x1)
+#define LED_PIN                 GPIO_PIN_RC3
     
 #define   GPIO_PORT_A (0U)
 #define   GPIO_PORT_B (1U)
@@ -406,7 +415,7 @@ static inline void GPIO_PinWrite(GPIO_PIN pin, bool value)
  */
 static inline bool GPIO_PinRead(GPIO_PIN pin)
 {
-    return (((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U);
+    return ((((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**
@@ -427,7 +436,7 @@ static inline bool GPIO_PinRead(GPIO_PIN pin)
  */
 static inline bool GPIO_PinLatchRead(GPIO_PIN pin)
 {
-    return ((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U);
+    return (((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xFU)) & 0x1U) != 0U);
 }
 
 /**

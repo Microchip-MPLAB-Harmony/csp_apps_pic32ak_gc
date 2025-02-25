@@ -17,7 +17,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -283,10 +283,15 @@ void INTC_Initialize ( void );
  * @pre     The INTC_Initialize() function must have been called first.
  * @param   source One of the possible values from INT_SOURCE.
  * @return  None.
+ * @note    This API performs a Read-Modify-Write (RMW) operation on the IECx register. 
+ *          To prevent race conditions, please disable global interrupts using 
+ *          `INTC_Disable` API before calling this function.
  * 
  * @b Example
  * @code
+ * bool prevStatus = INTC_Disable();
  * INTC_SourceEnable(INT_SOURCE_INT0);
+ * INTC_Restore(prevStatus);
  * @endcode
  * 
  * @remarks This function implements an operation of the SourceControl feature. 
@@ -301,10 +306,15 @@ void INTC_SourceEnable( INT_SOURCE source );
  * @pre     The INTC_Initialize() function must have been called first.
  * @param   source One of the possible values from INT_SOURCE.
  * @return  None.
- * 
+ * @note    This API performs a Read-Modify-Write (RMW) operation on the IECx register. 
+ *          To prevent race conditions, please disable global interrupts using 
+ *          `INTC_Disable` API before calling this function.
+ *
  * @b Example
  * @code
+ * bool prevStatus = INTC_Disable();
  * INTC_SourceDisable(INT_SOURCE_INT0);
+ * INTC_Restore(prevStatus);
  * @endcode
  * 
  * @remarks This function implements an operation of the SourceControl feature. 
@@ -367,7 +377,8 @@ bool INTC_SourceStatusGet( INT_SOURCE source );
 /**
  * @brief   Sets the status of the interrupt flag for the selected source.
  * @details This function sets the status of the interrupt flag for the selected 
- *          source. This function will not be used during normal operation of the system. 
+ *          source. 
+ * @note    This function will not be used during normal operation of the system. 
  *          It is used to generate test interrupts for debug and testing purposes.
  * @pre     The INTC_Initialize() function must have been called first.
  * @param   source One of the possible values from INT_SOURCE.
@@ -456,6 +467,7 @@ bool INTC_Disable( void );
  * @b Example
  * @code
  * bool prevStatus = INTC_Disable();
+ * INTC_SourceEnable(INT_SOURCE_INT0);
  * INTC_Restore(prevStatus);
  * @endcode
  * 

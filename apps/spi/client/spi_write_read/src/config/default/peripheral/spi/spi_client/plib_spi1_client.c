@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -85,10 +85,6 @@ volatile static SPI_CLIENT_OBJECT spi1Obj;
 
 /* Forward declarations */
 static void SPI1_CS_Handler(GPIO_PIN pin, uintptr_t context);
-
-void SPI1RX_InterruptHandler (void);
-void SPI1E_InterruptHandler (void);
-void SPI1TX_InterruptHandler (void);
 
 static void mem_copy(volatile void* pDst, volatile void* pSrc, uint32_t nBytes)
 {
@@ -354,16 +350,20 @@ void __attribute__((used)) SPI1TX_InterruptHandler (void)
 
 void __attribute__((used)) SPI1RX_InterruptHandler (void)
 {
+    uint32_t receivedData = 0;
+
     spi1Obj.rxInterruptActive = true;
 
     size_t rdInIndex = spi1Obj.rdInIndex;
 
     while (!(SPI1STAT & _SPI1STAT_SPIRBE_MASK))
     {
+        /* Receive buffer is not empty. Read the received data. */
+        receivedData = SPI1BUF;
+
         if (rdInIndex < (uint32_t)SPI1_READ_BUFFER_SIZE)
         {
-            /* Receive buffer is not empty. Read the received data. */
-            SPI1_ReadBuffer[rdInIndex] = SPI1BUF;
+            SPI1_ReadBuffer[rdInIndex] = (uint8_t)receivedData;
             rdInIndex++;
         }
     }
