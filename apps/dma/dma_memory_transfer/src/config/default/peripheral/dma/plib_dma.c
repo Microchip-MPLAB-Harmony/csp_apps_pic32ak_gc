@@ -21,7 +21,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2014 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -59,19 +59,17 @@
 #define DMA0CH_TRMODE_REPEATED_CONTINUOUS          ((uint32_t)(_DMA0CH_TRMODE_MASK & ((uint32_t)(3) << _DMA0CH_TRMODE_POSITION)))
 
 // DMAxCH Source Address Mode Selection Options
-#define DMA0CH_SAMODE_UNCHANGED          ((uint16_t)(_DMA0CH_SAMODE_MASK & ((uint16_t)(0) << _DMA0CH_SAMODE_POSITION)))
-#define DMA0CH_SAMODE_INCREMENTED          ((uint16_t)(_DMA0CH_SAMODE_MASK & ((uint16_t)(1) << _DMA0CH_SAMODE_POSITION)))
-#define DMA0CH_SAMODE_DECREMENTED          ((uint16_t)(_DMA0CH_SAMODE_MASK & ((uint16_t)(2) << _DMA0CH_SAMODE_POSITION)))
+#define DMA0CH_SAMODE_UNCHANGED          ((uint32_t)(_DMA0CH_SAMODE_MASK & ((uint32_t)(0) << _DMA0CH_SAMODE_POSITION)))
+#define DMA0CH_SAMODE_INCREMENTED          ((uint32_t)(_DMA0CH_SAMODE_MASK & ((uint32_t)(1) << _DMA0CH_SAMODE_POSITION)))
+#define DMA0CH_SAMODE_DECREMENTED          ((uint32_t)(_DMA0CH_SAMODE_MASK & ((uint32_t)(2) << _DMA0CH_SAMODE_POSITION)))
 
 // DMAxCH Destination Address Mode Selection Options
-#define DMA0CH_DAMODE_UNCHANGED          ((uint16_t)(_DMA0CH_DAMODE_MASK & ((uint16_t)(0) << _DMA0CH_DAMODE_POSITION)))
-#define DMA0CH_DAMODE_INCREMENTED          ((uint16_t)(_DMA0CH_DAMODE_MASK & ((uint16_t)(1) << _DMA0CH_DAMODE_POSITION)))
-#define DMA0CH_DAMODE_DECREMENTED          ((uint16_t)(_DMA0CH_DAMODE_MASK & ((uint16_t)(2) << _DMA0CH_DAMODE_POSITION)))
+#define DMA0CH_DAMODE_UNCHANGED          ((uint32_t)(_DMA0CH_DAMODE_MASK & ((uint32_t)(0) << _DMA0CH_DAMODE_POSITION)))
+#define DMA0CH_DAMODE_INCREMENTED          ((uint32_t)(_DMA0CH_DAMODE_MASK & ((uint32_t)(1) << _DMA0CH_DAMODE_POSITION)))
+#define DMA0CH_DAMODE_DECREMENTED          ((uint32_t)(_DMA0CH_DAMODE_MASK & ((uint32_t)(2) << _DMA0CH_DAMODE_POSITION)))
 
 
 // Section: Global Data
-
-void DMA0_InterruptHandler (void);
 
 volatile static DMA_CHANNEL_OBJECT  dmaChannelObj[DMA_NUMBER_OF_CHANNELS];
 
@@ -86,7 +84,7 @@ void DMA_Initialize( void )
 
     dmaChannelObj[DMA_CHANNEL_0].inUse      =    false;
     dmaChannelObj[DMA_CHANNEL_0].callback   =    NULL;
-    dmaChannelObj[DMA_CHANNEL_0].context    =    (uintptr_t)NULL;
+    dmaChannelObj[DMA_CHANNEL_0].context    =    0U;
 
 
     DMALOW = 0x4000UL;
@@ -99,7 +97,7 @@ void DMA_Initialize( void )
          | DMA0CH_SIZE_ONE_BYTE_WORD
          | _DMA0CH_DONEEN_MASK);
 
-    DMA0SEL = (uint32_t)(0x0 << _DMA0SEL_CHSEL_POSITION);
+    DMA0SEL = (uint32_t)0x0 << _DMA0SEL_CHSEL_POSITION;
 
     /* Enable DMA channel interrupts */
     // Clearing Channel 0 Interrupt Flag;
@@ -163,7 +161,9 @@ bool DMA_ChannelTransfer(DMA_CHANNEL channel, const void *srcAddr, const void *d
                 DMA0CHbits.CHEN = 1;
                 break;
 
-            default:break;
+            default:
+                /* Invalid channel, do nothing */
+                break;
         }
     }
 
@@ -182,7 +182,9 @@ void DMA_ChannelPatternMatchSetup(DMA_CHANNEL channel, uint32_t patternMatchMask
         DMA0CHbits.MATCHEN = 1U;
         break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -195,7 +197,9 @@ void DMA_ChannelEnable(DMA_CHANNEL channel)
             dmaChannelObj[channel].inUse = true;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -208,7 +212,9 @@ void DMA_ChannelDisable (DMA_CHANNEL channel)
             dmaChannelObj[channel].inUse = false;
             break;
 
-        default: break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -220,7 +226,9 @@ void DMA_ChannelPatternMatchEnable(DMA_CHANNEL channel)
             DMA0CHbits.MATCHEN = 1U;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -232,7 +240,9 @@ void DMA_ChannelPatternMatchDisable(DMA_CHANNEL channel)
             DMA0CHbits.MATCHEN = 0U;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -242,10 +252,12 @@ bool DMA_IsSoftwareRequestPending(DMA_CHANNEL channel)
     switch (channel)
     {
         case DMA_CHANNEL_0:
-                status = DMA0CHbits.CHREQ;
+                status = (DMA0CHbits.CHREQ != 0U);
                 break;
 
-        default: break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
     return status;
 }
@@ -258,7 +270,9 @@ void DMA_ChannelSoftwareTriggerEnable(DMA_CHANNEL channel)
             DMA0CHbits.CHREQ = 1U;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
 }
 
@@ -271,7 +285,9 @@ uint32_t DMA_ChannelGetTransferredCount(DMA_CHANNEL channel)
             count = DMA0CNT;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
     return count;
 }
@@ -282,13 +298,17 @@ bool DMA_ChannelIsBusy (DMA_CHANNEL channel)
     switch (channel)
     {
         case DMA_CHANNEL_0:
-            if ((DMA0STATbits.DONE == 0) && (dmaChannelObj[0].inUse == true))
+            if (DMA0STATbits.DONE == 0U)
             {
-                busy_check = true;
+                if (dmaChannelObj[0].inUse)
+                {
+                    busy_check = true;
+                }
             }
             break;
 
         default:
+            /* Invalid channel, do nothing */
             break;
     }
     return busy_check;
@@ -303,7 +323,9 @@ DMA_CHANNEL_CONFIG DMA_ChannelSettingsGet(DMA_CHANNEL channel)
             setting = DMA0CH;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
     return setting;
 }
@@ -319,7 +341,9 @@ bool DMA_ChannelSettingsSet(DMA_CHANNEL channel, DMA_CHANNEL_CONFIG setting)
             status = true;
             break;
 
-        default:break;
+        default:
+            /* Invalid channel, do nothing */
+            break;
     }
     return status;
 }
