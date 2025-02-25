@@ -14,7 +14,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -37,7 +37,8 @@
 *******************************************************************************/
 
 // Section: Included Files
-#include <xc.h>
+#include <device.h>
+#include <stdbool.h>
 #include "traps.h"
 
 void _BusErrorTrap(void);
@@ -66,7 +67,7 @@ void __attribute__((weak)) TRAPS_halt_on_error(uint16_t code)  //
     
     exception_address = PCTRAP;
     
-    while(1)
+    while(true)
     {
         #ifdef __DEBUG
         /* If we are in debug mode, cause a software breakpoint in the debugger */
@@ -75,19 +76,18 @@ void __attribute__((weak)) TRAPS_halt_on_error(uint16_t code)  //
     }
 }
 
+#define SET_STACK_POINTER(stack) __asm__ volatile ("mov %0, W15" : : "r"(stack))
+
 inline static void use_failsafe_stack(void)
 {
     static uint8_t failsafe_stack[FAILSAFE_STACK_SIZE];
-    asm volatile (
-        "   mov    %[pstack], W15\n"
-        :
-        : [pstack]"r"(failsafe_stack)
-    );
 
+    SET_STACK_POINTER(failsafe_stack);  
+    
     /* Controls where the stack pointer limit is, relative to the end of the
-     * failsafe stack
-     */
-    SPLIM = (uint32_t)(((uint8_t *)failsafe_stack) + sizeof(failsafe_stack) - (uint32_t) FAILSAFE_STACK_GUARDSIZE);
+    * failsafe stack
+    */
+    SPLIM = (uint32_t)(failsafe_stack + sizeof(failsafe_stack) - (uint32_t)FAILSAFE_STACK_GUARDSIZE);
 }
 
 /** Bus error.**/
@@ -117,7 +117,7 @@ void ERROR_HANDLER _BusErrorTrap(void)
       TRAPS_halt_on_error(TRAPS_BUS_CPU_INSTR_ERR);
     }
 
-    while(1)
+    while(true)
     {
     }
 }
@@ -149,7 +149,7 @@ void ERROR_HANDLER _GeneralTrap(void)
       INTCON5bits.WDTE = 0;  //Clear the trap flag
       TRAPS_halt_on_error(TRAPS_WDT_ERR); 
     }
-    while(1)
+    while(true)
     {
     }
 }
