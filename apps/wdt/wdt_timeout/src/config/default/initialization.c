@@ -15,7 +15,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -87,10 +87,10 @@
 #pragma config FPR0CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR0ST
-#pragma config FPR0ST_START = 0x0            // Region start address bits
+#pragma config FPR0ST_START = 0x0UL            // Region start address bits
 
 // FPR0END
-#pragma config FPR0END_END = 0x0            // Region end address bits
+#pragma config FPR0END_END = 0x0UL            // Region end address bits
 
 // FPR1CTRL
 #pragma config FPR1CTRL_RDIS = ON            // Protection is disabled
@@ -101,10 +101,10 @@
 #pragma config FPR1CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR1ST
-#pragma config FPR1ST_START = 0x0            // Region start address bits
+#pragma config FPR1ST_START = 0x0UL            // Region start address bits
 
 // FPR1END
-#pragma config FPR1END_END = 0x0            // Region end address bits
+#pragma config FPR1END_END = 0x0UL            // Region end address bits
 
 // FPR2CTRL
 #pragma config FPR2CTRL_RDIS = ON            // Protection is disabled
@@ -115,10 +115,10 @@
 #pragma config FPR2CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR2ST
-#pragma config FPR2ST_START = 0x0            // Region start address bits
+#pragma config FPR2ST_START = 0x0UL            // Region start address bits
 
 // FPR2END
-#pragma config FPR2END_END = 0x0            // Region end address bits
+#pragma config FPR2END_END = 0x0UL            // Region end address bits
 
 // FPR3CTRL
 #pragma config FPR3CTRL_RDIS = ON            // Protection is disabled
@@ -129,10 +129,10 @@
 #pragma config FPR3CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR3ST
-#pragma config FPR3ST_START = 0x0            // Region start address bits
+#pragma config FPR3ST_START = 0x0UL            // Region start address bits
 
 // FPR3END
-#pragma config FPR3END_END = 0x0            // Region end address bits
+#pragma config FPR3END_END = 0x0UL            // Region end address bits
 
 // FPR4CTRL
 #pragma config FPR4CTRL_RDIS = ON            // Protection is disabled
@@ -143,10 +143,10 @@
 #pragma config FPR4CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR4ST
-#pragma config FPR4ST_START = 0x0            // Region start address bits
+#pragma config FPR4ST_START = 0x0UL            // Region start address bits
 
 // FPR4END
-#pragma config FPR4END_END = 0x0            // Region end address bits
+#pragma config FPR4END_END = 0x0UL            // Region end address bits
 
 // FPR5CTRL
 #pragma config FPR5CTRL_RDIS = ON            // Protection is disabled
@@ -157,10 +157,10 @@
 #pragma config FPR5CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR5ST
-#pragma config FPR5ST_START = 0x0            // Region start address bits
+#pragma config FPR5ST_START = 0x0UL            // Region start address bits
 
 // FPR5END
-#pragma config FPR5END_END = 0x0            // Region end address bits
+#pragma config FPR5END_END = 0x0UL            // Region end address bits
 
 // FPR6CTRL
 #pragma config FPR6CTRL_RDIS = ON            // Protection is disabled
@@ -171,10 +171,10 @@
 #pragma config FPR6CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR6ST
-#pragma config FPR6ST_START = 0x0            // Region start address bits
+#pragma config FPR6ST_START = 0x0UL            // Region start address bits
 
 // FPR6END
-#pragma config FPR6END_END = 0x0            // Region end address bits
+#pragma config FPR6END_END = 0x0UL            // Region end address bits
 
 // FPR7CTRL
 #pragma config FPR7CTRL_RDIS = ON            // Protection is disabled
@@ -185,10 +185,10 @@
 #pragma config FPR7CTRL_RTYPE = FIRMWARE            // Firmware configurable region
 
 // FPR7ST
-#pragma config FPR7ST_START = 0x0            // Region start address bits
+#pragma config FPR7ST_START = 0x0UL            // Region start address bits
 
 // FPR7END
-#pragma config FPR7END_END = 0x0            // Region end address bits
+#pragma config FPR7END_END = 0x0UL            // Region end address bits
 
 // FIRT
 #pragma config FIRT_IRT = OFF            // Immutable root of trust (IRT) regions are disabled
@@ -200,10 +200,10 @@
 #pragma config FPED_ICSPPED = OFF            // ICSP can program and erase
 
 // FEPUCB
-#pragma config FEPUCB_EPUCB = 0xffffffff            // UCB erase protection bits
+#pragma config FEPUCB_EPUCB = 0xffffffffUL            // UCB erase protection bits
 
 // FWPUCB
-#pragma config FWPUCB_WPUCB = 0xffffffff            // UCB write protection bits
+#pragma config FWPUCB_WPUCB = 0xffffffffUL            // UCB write protection bits
 
 
 
@@ -272,7 +272,7 @@ void SYS_Initialize ( void* data )
     /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2012_R_2_2_DR_1 */
 
     /* Start out with interrupts disabled before configuring any modules */
-    __builtin_disable_interrupts();
+    (void)__builtin_disable_interrupts();
 
   
 	CLOCK_Initialize();
@@ -288,7 +288,7 @@ void SYS_Initialize ( void* data )
     INTC_Initialize();
 
 	/* Enable global interrupts */
-    __builtin_enable_interrupts();
+    (void)__builtin_enable_interrupts();
 
 
 

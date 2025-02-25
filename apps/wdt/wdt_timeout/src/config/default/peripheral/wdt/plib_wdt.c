@@ -17,7 +17,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -42,21 +42,22 @@
 
 // Section: Included Files
 
-#include "device.h"
 #include "plib_wdt.h"
 
 // Section: WDT Implementation
 
+extern void __builtin_clrwdt(void);
+
 void WDT_Enable( void )
 {
     /* ON = 1 */
-    WDTCONbits.ON = 1;
+    WDTCONbits.ON = 1U;
 }
 
 void WDT_Disable( void )
 {
     /* ON = 0 */
-    WDTCONbits.ON = 0;
+    WDTCONbits.ON = 0U;
 }
 
 bool WDT_IsEnabled( void )
@@ -67,13 +68,13 @@ bool WDT_IsEnabled( void )
 void WDT_WindowEnable( void )
 {
     /* WINDIS = 0 */
-    WDTCONbits.WINDIS = 0;
+    WDTCONbits.WINDIS = 0U;
 }
 
 void WDT_WindowDisable( void )
 {
     /* WINDIS = 1 */
-    WDTCONbits.WINDIS = 1;
+    WDTCONbits.WINDIS = 1U;
 }
 
 bool WDT_IsWindowEnabled( void )
@@ -83,5 +84,5 @@ bool WDT_IsWindowEnabled( void )
 
 void WDT_Clear( void )
 {
-    ClrWdt();
+  __builtin_clrwdt();
 }
