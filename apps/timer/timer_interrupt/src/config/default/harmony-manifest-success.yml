@@ -4,17 +4,17 @@
 
 
 project: timer_interrupt
-creation_date: 2025-02-20T15:26:49.321+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
-operating_system: Windows 11
-mcc_mode: IDE            # [IDE|Standalone|Headless]
+creation_date: 2025-02-25T15:50:53.445+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+operating_system: Windows 10
+mcc_mode: Headless            # [IDE|Standalone|Headless]
 mcc_version: v5.5.1
 mcc_core_version: v5.7.1
-mplabx_version: v6.25        # if MPLAB X plugin only
+mplabx_version: NA        # if MPLAB X plugin only
 harmony_version: v1.5.4
-compiler: XC32 4.60
+compiler: NA
 
 modules:
-    - {name: "csp", version: "dspic33a_pegasus"}
+    - {name: "csp", version: "v3.22.0-rc.1-74-gee809d3"}
 
 packs:
     - {name: "PIC32AK-GC_DFP", version: "1.0.5"}
