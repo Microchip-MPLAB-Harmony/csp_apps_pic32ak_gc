@@ -17,7 +17,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -60,14 +60,14 @@
 
 typedef struct 
 {  
-    uint8_t crc:4;     /**< Defines the CRC field */
-    uint8_t data1:4;   /**< Defines the first data nibble field */       
-    uint8_t data2:4;   /**< Defines the second data nibble field */
-    uint8_t data3:4;   /**< Defines the third data nibble field */
-    uint8_t data4:4;   /**< Defines the fourth data nibble field */
-    uint8_t data5:4;   /**< Defines the fifth data nibble field */
-    uint8_t data6:4;   /**< Defines the sixth data nibble field */
-    uint8_t status:4;  /**< Defines the status field */
+    unsigned int crc:4;     /**< Defines the CRC field */
+    unsigned int data1:4;   /**< Defines the first data nibble field */       
+    unsigned int data2:4;   /**< Defines the second data nibble field */
+    unsigned int data3:4;   /**< Defines the third data nibble field */
+    unsigned int data4:4;   /**< Defines the fourth data nibble field */
+    unsigned int data5:4;   /**< Defines the fifth data nibble field */
+    unsigned int data6:4;   /**< Defines the sixth data nibble field */
+    unsigned int status:4;  /**< Defines the status field */
 }SENT_DATA_TRANSMIT;
 
 // Section: Enum Declarations

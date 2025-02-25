@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -116,7 +116,7 @@ bool SENT2_IsDataReceived(void)
 
 SENT_RECEIVE_STATUS SENT2_ReceiveStatusGet(void)
 {
-    return (SENT2STAT);
+    return (SENT_RECEIVE_STATUS)SENT2STAT;
 }
 
 SENT_ERROR_CODE ReceiveErrorGet(void)

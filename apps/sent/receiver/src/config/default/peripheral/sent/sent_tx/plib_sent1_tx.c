@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -97,7 +97,7 @@ void SENT1_Disable(void)
 
 void SENT1_TransmitModeSet(SENT_TRANSMIT_MODE mode)
 {
-  SENT1CON1bits.TXM = mode;
+  SENT1CON1bits.TXM = (uint8_t)mode;
 }
 
 void SENT1_Transmit(const SENT_DATA_TRANSMIT *sentData)
@@ -123,7 +123,7 @@ bool SENT1_IsTransmissionComplete(void)
 
 SENT_TRANSMIT_STATUS SENT1_TransmitStatusGet(void)
 {
-    return (SENT1STAT);
+    return (SENT_TRANSMIT_STATUS)SENT1STAT;
 }
 
 
