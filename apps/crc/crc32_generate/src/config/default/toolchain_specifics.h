@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -41,6 +41,9 @@
 #ifndef   __STATIC_INLINE
     #define __STATIC_INLINE            static __inline__
 #endif
+#ifndef   __STATIC_FORCEINLINE
+    #define __STATIC_FORCEINLINE      
+#endif
 #ifndef   __NO_RETURN
     #define __NO_RETURN                __attribute__((__noreturn__))
 #endif
@@ -60,14 +63,18 @@
     #define __PACKED_UNION             union __attribute__((packed, aligned(1)))
 #endif
 #ifndef   __COHERENT
-    #define __COHERENT                 __attribute__((coherent))
+    #define __COHERENT                 
 #endif
 #ifndef   __ALIGNED
     #define __ALIGNED(x)               __attribute__((aligned(x)))
 #endif
+#ifndef   __RESTRICT
+    #define __RESTRICT                 
+#endif
 
-#define CACHE_LINE_SIZE    (4u)
+#define CACHE_LINE_SIZE                (4u)
 #define CACHE_ALIGN
+
 #define CACHE_ALIGNED_SIZE_GET(size)     ((size) + ((((size) % (CACHE_LINE_SIZE))!= 0U)? ((CACHE_LINE_SIZE) - ((size) % (CACHE_LINE_SIZE))) : (0U)))
 
 #ifndef FORMAT_ATTRIBUTE
