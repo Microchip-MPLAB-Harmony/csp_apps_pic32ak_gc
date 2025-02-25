@@ -18,7 +18,7 @@
 */
 
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -50,7 +50,7 @@
 
 #define TIMER_CLOCK_FREQUENCY          100000000
 
-#define TMR_INTERRUPT_PERIOD_IN_US     100
+#define TMR_INTERRUPT_PERIOD_IN_US     39
 typedef struct
 {
     uint32_t start;

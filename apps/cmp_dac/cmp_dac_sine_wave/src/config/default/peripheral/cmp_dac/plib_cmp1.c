@@ -16,7 +16,7 @@
 *******************************************************************************/
  
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -103,7 +103,7 @@ void CMP1_Initialize(void)
 {           
     // Comparator Register settings
     DACCTRL1bits.FCLKDIV = 0U; 
-    DAC1CON =  (DAC1CON_TMCB_SET(0)
+    DAC1CON =  (DAC1CON_TMCB_SET(0x0U)
               |DAC1CON_IRQM_DISABLED
               |_DAC1CON_DACOEN_MASK
               |DAC1CON_INSEL_CMPxA
@@ -143,9 +143,11 @@ void CMP1_Deinitialize(void)
 void CMP1_Calibrate(void)
 {
     uint32_t *fpdmdac = (uint32_t*)CMP_FPDMDAC_ADDRESS;
-    DACCTRL1bits.POSINLADJ = ((*fpdmdac) & _DACCTRL1_POSINLADJ_MASK) >> _DACCTRL1_POSINLADJ_POSITION;
-    DACCTRL1bits.NEGINLADJ = ((*fpdmdac) & _DACCTRL1_NEGINLADJ_MASK) >> _DACCTRL1_NEGINLADJ_POSITION;
-    DACCTRL1bits.DNLADJ = ((*fpdmdac) & _DACCTRL1_DNLADJ_MASK) >> _DACCTRL1_DNLADJ_POSITION;
+    uint32_t fpdmdac_value = *fpdmdac;
+
+    DACCTRL1bits.POSINLADJ = (uint8_t)((fpdmdac_value & _DACCTRL1_POSINLADJ_MASK) >> _DACCTRL1_POSINLADJ_POSITION);
+    DACCTRL1bits.NEGINLADJ = (uint8_t)((fpdmdac_value & _DACCTRL1_NEGINLADJ_MASK) >> _DACCTRL1_NEGINLADJ_POSITION);
+    DACCTRL1bits.DNLADJ = (uint8_t)((fpdmdac_value & _DACCTRL1_DNLADJ_MASK) >> _DACCTRL1_DNLADJ_POSITION);
     DACCTRL1bits.RREN = 1U;
 }
 

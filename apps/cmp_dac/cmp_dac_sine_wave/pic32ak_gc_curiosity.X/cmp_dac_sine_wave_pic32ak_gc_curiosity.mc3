@@ -19,7 +19,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.5.5-a"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.5.4"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1131,83 +1131,83 @@
    <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
          <file>..\src\config\default\definitions.h</file>
-         <hash>22f7579aae8c0b4e8b5aeab208a21e65265d2f77548546f0b13cbbc02a90cdf6</hash>
+         <hash>018a8c0c4bd44bcbb887ec5324ef97f26b41d90577e0a0c4e07a091410dcf70f</hash>
       </entry>
       <entry>
          <file>..\src\config\default\device.h</file>
-         <hash>54a0f3a2e195ebdc026ca2afa0434dac7f5806be61ff88e1ef408314fee487f9</hash>
+         <hash>ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05</hash>
       </entry>
       <entry>
          <file>..\src\config\default\initialization.c</file>
-         <hash>a1ee7ffce6d19152243ca1078ebe052603c4e59d638c74e0ff1594ca54e7f929</hash>
+         <hash>6516188676e04b908b0cf5a12723f2a6e948fcf3ec0fcbdacf655e50365a7d3a</hash>
       </entry>
       <entry>
          <file>..\src\config\default\interrupts.c</file>
-         <hash>62ce15bcf56073c8c207bacf83fee83bc7d11966bb06b9870f96429312123abf</hash>
+         <hash>a8547328eede6bef73644f7811a46af5487ec5ac051c0d12dfc103fd1826d579</hash>
       </entry>
       <entry>
          <file>..\src\config\default\interrupts.h</file>
-         <hash>48f4f96d693624423974669e2395c711ef82725b36b232a8ad8b1cd61c1a6ec1</hash>
+         <hash>dde2be3e5e5a4e75348a37f812d04c2a0048a09b46f09ce7ec1015f14cbca0d9</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\clk\plib_clk.c</file>
-         <hash>a602c3876f5a148230724530ff787e126995e9a263f7c0583fb561d7938f39cf</hash>
+         <hash>18c36cd4abb99f2c567fd0df9f2a19e8d86800fb8808adc73b634cf306a504f9</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\clk\plib_clk.h</file>
-         <hash>55e8a691bb1a602bdbddb52c3ddf1e6459b6411fde12db07567ea58cd644a891</hash>
+         <hash>81e1acb58dd0d88d16d84b7749573d9fe5ea51ebc745fd99f5ad7ea50c6dcae6</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\clk\plib_clk_common.h</file>
-         <hash>3299b4cc34e7e52e1ee2f147355f7e28891964f18832a90d9d7d720ea867a560</hash>
+         <hash>6ac09155f6503c24c6a45ec638d874d04900d65eff3ff93c52393fdba4bda73d</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\cmp_dac\plib_cmp1.c</file>
-         <hash>e5deffa60fe157a65409bd9fc08ba3240b1e469377ef94fd088b27639bd98d73</hash>
+         <hash>1531e6054ec21aba0788acde25b3e9b0d670682d19024c6102d379862aa566ee</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\cmp_dac\plib_cmp1.h</file>
-         <hash>3d5a045445864c876e83fc92d0aeb00338fd5f7397682b941fb48e9d948758a5</hash>
+         <hash>8521cc9e9c069f92ecf63db2b02da6e8cb24d833bb10718ad4b007c7b1267433</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\cmp_dac\plib_cmp_common.h</file>
-         <hash>a90ce1d098df600644773632096b0c8b4e248f13af305742a575acd56ff8d7d1</hash>
+         <hash>7468b55af75d5462be290735d17af8d43727b5c098534cbacc9c3157b4799062</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\dma\plib_dma.c</file>
-         <hash>75227a96f002e9010df596d995521adf8493c354c5c56d231ca2de9ad89cc9bf</hash>
+         <hash>76a210605778b8dab974b3b878019a07ac5ae0b694882fdb54b2acb52572239d</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\dma\plib_dma.h</file>
-         <hash>1935fe7eac7c1366279827a9a3ca7a34c853f9d22502f44bb55cbcc454f51da8</hash>
+         <hash>7a56fe59781e77d92c299cb69912f6e892e5ce577a9daa6ba3af6b375bee990b</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\gpio\plib_gpio.c</file>
-         <hash>6c357289cd8f7e7b9e869d1c1c09480bab5803c05e6d82f054de2c8609b3ce33</hash>
+         <hash>66669661cc1b52540f791f5abf4dbb3b3a9587ca853dbedbc2751b9c7a519a63</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\gpio\plib_gpio.h</file>
-         <hash>393e1ec990e28210bbf0249f0ce8b6c10e022c5c97afd784bd7814f90f8931da</hash>
+         <hash>82800a21b6d0dfee4b9fbf2b85fbae30b5f52b20109bbe51c4861d2d14d6fab4</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\intc\plib_intc.c</file>
-         <hash>6c5d200651d7e77a0de873d1c37a3371a6e6af451bd6973d87b3ddaf247b43bb</hash>
+         <hash>1cd72838f763066bec2c08cd6521c179dbe8ea62e4091c9de49d890c4e06db81</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\intc\plib_intc.h</file>
-         <hash>e0d2af715642d4a42b1ec197e001d133f44cfb61c9d8b186e262303071298ec3</hash>
+         <hash>0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\tmr\plib_tmr1.c</file>
-         <hash>a2dcf10c78c005b5d50dee7d8f71ba84d68d136bc3a99a820177a0467dc6ad79</hash>
+         <hash>d95729b4e0be94a221722264faf2edf2d5b037ae0da02da57e6ca0b81b13d251</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\tmr\plib_tmr1.h</file>
-         <hash>dfae9058104829b27610f28d0e102b8e54f77069b8303ca54800236e86d3e829</hash>
+         <hash>c144733e2aa1c5c1e4f3556f62bcdc949e0ad8048c06f71c6ef447537d979a6c</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\tmr\plib_tmr_common.h</file>
-         <hash>718b3b8e3968c92dd3afbaa30d9d361e5a7833c154318965a79b32ac83bc696c</hash>
+         <hash>44b6cc078ef9ff1c11aba2c53e3392130fbbeec10fd80022ca490d1b9d6d61fe</hash>
       </entry>
       <entry>
          <file>..\src\config\default\stdio\xc32_monitor.c</file>
@@ -1219,11 +1219,11 @@
       </entry>
       <entry>
          <file>..\src\config\default\traps.c</file>
-         <hash>8ffd86ee8d0086e71a5d8f14f5da74e3dc6be0c7cf907ca906afba5de551a230</hash>
+         <hash>87fa9ba519a25ee138a4c454402980f07022e803d97e188c9baa14fc9703d817</hash>
       </entry>
       <entry>
          <file>..\src\config\default\traps.h</file>
-         <hash>c51f079be3ace4c59633de0bb0eb5f908331697e3415d0e83712b7666b517b57</hash>
+         <hash>0c3944edb4f19e4a9bc3b924de2dc564e4dda1d80140d56ecc6a832c8d5c8af3</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
