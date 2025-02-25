@@ -95,7 +95,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32AK-GC_DFP" vendor="Microchip" version="1.0.1"/>
+        <pack name="PIC32AK-GC_DFP" vendor="Microchip" version="1.0.5"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -127,6 +127,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>

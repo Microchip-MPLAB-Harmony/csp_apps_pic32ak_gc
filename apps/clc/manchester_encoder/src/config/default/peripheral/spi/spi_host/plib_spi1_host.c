@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -44,10 +44,6 @@
 
 /* Global object to save SPI Exchange related data */
 volatile static SPI_OBJECT spi1Obj;
-
-void SPI1RX_InterruptHandler (void);
-void SPI1E_InterruptHandler (void);
-void SPI1TX_InterruptHandler (void);
 
 // *****************************************************************************
 // *****************************************************************************
@@ -222,12 +218,18 @@ static void SPI_FIFO_Fill(void)
 {
     uint8_t nDataCopiedToFIFO = 0U;
 
-    while ((nDataCopiedToFIFO < SPI1_FIFO_SIZE) && (SPI1STATbits.SPITBF == 0U))
+    size_t txCount = spi1Obj.txCount;
+
+    while (nDataCopiedToFIFO < SPI1_FIFO_SIZE)
     {
-        if (spi1Obj.txCount < spi1Obj.txSize)
+        if(SPI1STATbits.SPITBF != 0U)
         {
-            SPI1BUF = ((uint8_t*)spi1Obj.txBuffer)[spi1Obj.txCount];
-            spi1Obj.txCount++;
+            break;     /* Exit loop if buffer is full */
+        }
+        if (txCount < spi1Obj.txSize)
+        {
+            SPI1BUF = ((uint8_t*)spi1Obj.txBuffer)[txCount];
+            txCount++;
         }
         else if (spi1Obj.dummySize > 0U)
         {
@@ -240,6 +242,7 @@ static void SPI_FIFO_Fill(void)
         }
         nDataCopiedToFIFO++;
     }
+    spi1Obj.txCount = txCount;
 }
 
 bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize)
@@ -323,7 +326,7 @@ bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, siz
         {
             if(rxSize < SPI1_FIFO_SIZE)
             {
-                SPI1IMSKbits.RXMSK = rxSize;
+                SPI1IMSKbits.RXMSK = (uint8_t)rxSize;
             }
             else
             {
@@ -364,7 +367,8 @@ bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, siz
 
 void __attribute__((used)) SPI1RX_InterruptHandler (void)
 {
-    uint32_t nRxPending = 0U;
+    uint32_t nRxPending = 0;
+    uint32_t receivedData = 0;
 
     /* Check Receive Buffer Element Count for watermark interrupt */
     if ((SPI1STAT & _SPI1STAT_RXELM_MASK) != 0U)
@@ -376,7 +380,9 @@ void __attribute__((used)) SPI1RX_InterruptHandler (void)
             if (rxCount < spi1Obj.rxSize)
             {
                 /* Receive buffer is not empty. Read the received data. */
-                ((uint8_t*)spi1Obj.rxBuffer)[rxCount] = SPI1BUF;
+                receivedData = SPI1BUF;
+
+                ((uint8_t*)spi1Obj.rxBuffer)[rxCount] = (uint8_t)receivedData;
                 rxCount++;
 
                 spi1Obj.rxCount = rxCount;
@@ -411,7 +417,7 @@ void __attribute__((used)) SPI1RX_InterruptHandler (void)
 
             if(nRxPending <= SPI1_FIFO_SIZE)
             {
-                SPI1IMSKbits.RXMSK = nRxPending;
+                SPI1IMSKbits.RXMSK = (uint8_t)nRxPending;
             }
             else
             {
@@ -482,8 +488,12 @@ void __attribute__((used)) SPI1TX_InterruptHandler (void)
     {
         size_t txCount = spi1Obj.txCount;
 
-        while ((txCount < spi1Obj.txSize) && (!SPI1STATbits.SPITBF))
+        while (txCount < spi1Obj.txSize)
         {
+            if(SPI1STATbits.SPITBF != 0U)
+            {
+                break;     /* Exit loop if buffer is full */
+            }
             SPI1BUF = ((uint8_t*)spi1Obj.txBuffer)[txCount];
             txCount++;
 

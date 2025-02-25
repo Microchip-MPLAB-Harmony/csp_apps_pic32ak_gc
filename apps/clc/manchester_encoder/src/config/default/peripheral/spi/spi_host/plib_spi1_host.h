@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025-2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -159,7 +159,7 @@ void SPI1_Deinitialize ( void );
  *
  * @b Non-blocking Mode:
  * @code
- * // Example of SPIx_WriteRead() in interrupt mode with a callback function.
+ * - Example of SPIx_WriteRead() in interrupt mode with a callback function.
  *
  * uint8_t txBuffer[4];
  * uint8_t rxBuffer[10];
@@ -168,7 +168,7 @@ void SPI1_Deinitialize ( void );
  *
  * void APP_SPITransferHandler(uintptr_t context)
  * {
- *     // Transfer completed without error; take appropriate action.
+ *     - Transfer completed without error; take appropriate action.
  * }
  *
  * SPI1_Initialize();
@@ -186,7 +186,7 @@ void SPI1_Deinitialize ( void );
  *
  * @b Blocking Mode:
  * @code
- * // Example of SPIx_WriteRead() in blocking mode (non-interrupt).
+ * - Example of SPIx_WriteRead() in blocking mode (non-interrupt).
  *
  * uint8_t txBuffer[4];
  * uint8_t rxBuffer[10];
