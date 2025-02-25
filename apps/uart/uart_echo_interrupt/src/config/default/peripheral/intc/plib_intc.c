@@ -17,7 +17,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -42,7 +42,6 @@
 
 #include "plib_intc.h"
 #include "interrupts.h"
-
 
 
 void INTC_Initialize( void )
@@ -95,7 +94,7 @@ void INTC_SourceStatusClear( INT_SOURCE source )
 
 void INTC_Enable( void )
 {
-    __builtin_enable_interrupts();
+    (void)__builtin_enable_interrupts();
 }
 
 bool INTC_Disable( void )
@@ -103,9 +102,9 @@ bool INTC_Disable( void )
     bool processorStatus;
     
     /* Save the current processor status and then Disable the global interrupt */
-    processorStatus = INTCON1bits.GIE;
+    processorStatus = (INTCON1bits.GIE != 0U);
             
-    __builtin_disable_interrupts();
+    (void)__builtin_disable_interrupts();
 
     /* return the processor status */
     return processorStatus;
@@ -116,7 +115,7 @@ void INTC_Restore( bool state )
     if (state)
     {
         /* restore the state of Global Interrupts before the disable occurred */
-       __builtin_enable_interrupts();
+       (void)__builtin_enable_interrupts();
     }
 }
 
