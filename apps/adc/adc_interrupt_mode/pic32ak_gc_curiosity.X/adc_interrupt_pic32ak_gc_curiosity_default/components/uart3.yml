@@ -1,0 +1,138 @@
+configVersion: 1.0.0
+componentName: uart3
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: uart3
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: UART3_UART
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: stdio
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: UART
+            type: String
+          type: Attributes
+        type: DirectCapability
+      type: Attachments
+    type: uart3
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: uart3
+          x: '490'
+          y: '40'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    U_CON__BRGS:
+      attributes:
+        id: U_CON__BRGS
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: String
+    U_CON__CLKMOD:
+      attributes:
+        id: U_CON__CLKMOD
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: String
+    brgRegValue:
+      attributes:
+        id: brgRegValue
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: '0x364'
+          type: Dynamic
+        type: Values
+      type: String
+    calcBaudRateVal:
+      attributes:
+        id: calcBaudRateVal
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: '115207.373'
+          type: Dynamic
+        type: Values
+      type: String
+    intEnable:
+      attributes:
+        id: intEnable
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    operatingMode:
+      attributes:
+        id: operatingMode
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: uart3
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    ringBufferModeEnable:
+      attributes:
+        id: ringBufferModeEnable
+      children:
+      - children:
+        - attributes:
+            id: uart3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
