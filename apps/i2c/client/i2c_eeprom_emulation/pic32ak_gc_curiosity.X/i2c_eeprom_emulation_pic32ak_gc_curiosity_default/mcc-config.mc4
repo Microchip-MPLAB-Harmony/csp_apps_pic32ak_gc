@@ -1,0 +1,50 @@
+configVersion: 1.0.0
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+deviceLibrary:
+  className: com.microchip.mcc.harmony.Harmony3Library
+groupModules: []
+modules:
+- core
+- dfp
+- i2c1
+generatedFileHashHistoryMap:
+- file: ..\src\config\default\definitions.h
+  hash: 6ad1f0657d0929e853c69026fbf394d89561d4b8d5b0fc44601f002e46a19dcd
+- file: ..\src\config\default\device.h
+  hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
+- file: ..\src\config\default\initialization.c
+  hash: 59110b9a4d06a42b765c71da7e566fd27383adb1887fa0f5c53259d5b32c33f5
+- file: ..\src\config\default\interrupts.c
+  hash: 4f840190dc5ac4151c16a6caccccc47e1453db464470f09e1ace40052e530f83
+- file: ..\src\config\default\interrupts.h
+  hash: 64e4a3e996128370fbb24ee0e7d8fc0a83655eeccae70cb95173c1b63dd2b04d
+- file: ..\src\config\default\peripheral\clk\plib_clk.c
+  hash: 6c4c276f59ec06f9a6717bf3c2fa7bffb065d900358f49b3d7171d5201dc5e21
+- file: ..\src\config\default\peripheral\clk\plib_clk.h
+  hash: 9b3f1b4580f7a48136dd2d7b3a88e6d726212c400f7daa8b49649889085b9d52
+- file: ..\src\config\default\peripheral\clk\plib_clk_common.h
+  hash: eef1f2bb06ca84239b4c79659fca909ebed461905c0b447fac7e756f5d3fd6d3
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.c
+  hash: 66669661cc1b52540f791f5abf4dbb3b3a9587ca853dbedbc2751b9c7a519a63
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.h
+  hash: 82800a21b6d0dfee4b9fbf2b85fbae30b5f52b20109bbe51c4861d2d14d6fab4
+- file: ..\src\config\default\peripheral\i2c\client\plib_i2c1_client.c
+  hash: 612e1c4bf92befd96b2a6e052c3c158b6acf9b7bd82bb7b76ade5466060972b4
+- file: ..\src\config\default\peripheral\i2c\client\plib_i2c1_client.h
+  hash: 738d0987f49f24c59a8595f6136b471108b3c989d09e3904bf6e95c925d1e8ea
+- file: ..\src\config\default\peripheral\i2c\client\plib_i2c_client_common.h
+  hash: 03d2798e011d92b6caa71f75bf90bf255cae0003c51f673c67ba7763c5c50e32
+- file: ..\src\config\default\peripheral\intc\plib_intc.c
+  hash: 00c6f8aa6ee2c32f56ec5bcb955a09dea45e1c0b864f8119b7cba012ae9da467
+- file: ..\src\config\default\peripheral\intc\plib_intc.h
+  hash: 0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3
+- file: ..\src\config\default\stdio\xc32_monitor.c
+  hash: 858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a
+- file: ..\src\config\default\toolchain_specifics.h
+  hash: 5cd98152c03685521e9ec6d946756d4cbe65fa54c2fdbcc447adb52b705b938b
+- file: ..\src\config\default\traps.c
+  hash: 87fa9ba519a25ee138a4c454402980f07022e803d97e188c9baa14fc9703d817
+- file: ..\src\config\default\traps.h
+  hash: 0c3944edb4f19e4a9bc3b924de2dc564e4dda1d80140d56ecc6a832c8d5c8af3
+- file: ..\src\main.c

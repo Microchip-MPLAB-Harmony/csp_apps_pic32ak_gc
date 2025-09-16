@@ -1,0 +1,71 @@
+configVersion: 1.0.0
+componentName: i2c1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: i2c1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: i2c1
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CLIENT_ADDDRESS:
+      attributes:
+        id: CLIENT_ADDDRESS
+      children:
+      - children:
+        - attributes:
+            id: label
+          children:
+          - type: Value
+            value: Client Address(7-bit)
+          type: String
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '127'
+          type: Long
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '84'
+          type: User
+        type: Values
+      type: Hex
+    I2C_OPERATING_MODE:
+      attributes:
+        id: I2C_OPERATING_MODE
+      children:
+      - children:
+        - attributes:
+            value: Client
+          type: User
+        type: Values
+      type: Combo
+  userData: {}

@@ -31,8 +31,15 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="i2c_eeprom_emulation_pic32ak_gc_curiosity_default" displayName="i2c_eeprom_emulation_pic32ak_gc_curiosity_default" projectFiles="true">
+        <itemPath>i2c_eeprom_emulation_pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>i2c_eeprom_emulation_pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>i2c_eeprom_emulation_pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>i2c_eeprom_emulation_pic32ak_gc_curiosity_default/components/i2c1.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>i2c_eeprom_emulation_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles" displayName="LibraryFiles" projectFiles="true">
     </logicalFolder>
