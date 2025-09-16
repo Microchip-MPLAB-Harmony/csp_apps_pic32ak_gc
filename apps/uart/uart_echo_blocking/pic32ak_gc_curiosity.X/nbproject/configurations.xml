@@ -29,8 +29,15 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="uart_echo_blocking_pic32ak_gc_curiosity_default" displayName="uart_echo_blocking_pic32ak_gc_curiosity_default" projectFiles="true">
+        <itemPath>uart_echo_blocking_pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>uart_echo_blocking_pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>uart_echo_blocking_pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>uart_echo_blocking_pic32ak_gc_curiosity_default/components/uart3.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>uart_echo_blocking_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles" displayName="LibraryFiles" projectFiles="true">
     </logicalFolder>
