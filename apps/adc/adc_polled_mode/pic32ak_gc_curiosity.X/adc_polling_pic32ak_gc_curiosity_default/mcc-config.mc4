@@ -1,0 +1,58 @@
+configVersion: 1.0.0
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+deviceLibrary:
+  className: com.microchip.mcc.harmony.Harmony3Library
+groupModules: []
+modules:
+- adc1
+- core
+- dfp
+- stdio
+- uart3
+generatedFileHashHistoryMap:
+- file: ..\src\config\default\definitions.h
+  hash: 28f5d4648320cb9f90e8ffc05c9747683f7ffae60c43e8adeb2f9f7b51fe202f
+- file: ..\src\config\default\device.h
+  hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
+- file: ..\src\config\default\initialization.c
+  hash: deb055c97f61ebe19ab110098856e493a11cff1517b94c4145bd22cc7906502d
+- file: ..\src\config\default\interrupts.c
+  hash: e2e7bc74d76afb1b5e9cd6ec636e173a9ab2e6707b5a42d35d3f7af83102c968
+- file: ..\src\config\default\interrupts.h
+  hash: 2b6f3a9da8b2f61b5ea3f584838ad851b151646b5fda0fb709cc05e65576fd37
+- file: ..\src\config\default\peripheral\adc\plib_adc1.c
+  hash: d58c1c75be44a98bcc6f9d87ec01fe97152cb6754ddb5a706f2d46c327b7004b
+- file: ..\src\config\default\peripheral\adc\plib_adc1.h
+  hash: b98b439b9770746e4e07a516c27afe26fab906f93523d675c13ee8f0998b7607
+- file: ..\src\config\default\peripheral\adc\plib_adc_common.h
+  hash: 759c6d6be14113064df466d760fd84ac5ac10138378e7270f4476cde31c42cfe
+- file: ..\src\config\default\peripheral\clk\plib_clk.c
+  hash: 6c4c276f59ec06f9a6717bf3c2fa7bffb065d900358f49b3d7171d5201dc5e21
+- file: ..\src\config\default\peripheral\clk\plib_clk.h
+  hash: 9b3f1b4580f7a48136dd2d7b3a88e6d726212c400f7daa8b49649889085b9d52
+- file: ..\src\config\default\peripheral\clk\plib_clk_common.h
+  hash: eef1f2bb06ca84239b4c79659fca909ebed461905c0b447fac7e756f5d3fd6d3
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.c
+  hash: da1041c083dc2e019e122eb4b323568c454d5b34df2b03d7fd06895429becc25
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.h
+  hash: 82800a21b6d0dfee4b9fbf2b85fbae30b5f52b20109bbe51c4861d2d14d6fab4
+- file: ..\src\config\default\peripheral\intc\plib_intc.c
+  hash: f162c6ec1ea508ce90309511db0c43321f87f06b127230a7c822e1ccc17af40c
+- file: ..\src\config\default\peripheral\intc\plib_intc.h
+  hash: 0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3
+- file: ..\src\config\default\peripheral\uart\plib_uart3.c
+  hash: 93a8cbe024a2b55ed24d7773b6e776ec335bc59cd86b3f9743173b9c16ebc778
+- file: ..\src\config\default\peripheral\uart\plib_uart3.h
+  hash: 372581532aaf179663310d493e3afe1e27fa25463c4f54c61a14aa568949b8d0
+- file: ..\src\config\default\peripheral\uart\plib_uart_common.h
+  hash: 407bea66c111df087682a0f41da9e25d94294909d42c4d5362d618538f4e18a1
+- file: ..\src\config\default\stdio\xc32_monitor.c
+  hash: 3a324a9f25cb6591130f8103d7d936ca701680d174fd9dcd48b214ac10cd81b3
+- file: ..\src\config\default\toolchain_specifics.h
+  hash: 5cd98152c03685521e9ec6d946756d4cbe65fa54c2fdbcc447adb52b705b938b
+- file: ..\src\config\default\traps.c
+  hash: 87fa9ba519a25ee138a4c454402980f07022e803d97e188c9baa14fc9703d817
+- file: ..\src\config\default\traps.h
+  hash: 0c3944edb4f19e4a9bc3b924de2dc564e4dda1d80140d56ecc6a832c8d5c8af3
+- file: ..\src\main.c
