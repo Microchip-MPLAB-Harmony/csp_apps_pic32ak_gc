@@ -1,0 +1,86 @@
+configVersion: 1.0.0
+componentName: sent1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sent1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: sent1
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CALCULATED_TICK_TIME:
+      attributes:
+        id: CALCULATED_TICK_TIME
+      children:
+      - children:
+        - attributes:
+            id: sent1
+            value: '3'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLOCK_FREQUENCY:
+      attributes:
+        id: CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: sent1
+            value: '4000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SYNC_MAX:
+      attributes:
+        id: SYNC_MAX
+      children:
+      - children:
+        - attributes:
+            id: sent1
+            value: '115'
+          type: Dynamic
+        type: Values
+      type: Hex
+    SYNC_MIN:
+      attributes:
+        id: SYNC_MIN
+      children:
+      - children:
+        - attributes:
+            id: sent1
+            value: '77'
+          type: Dynamic
+        type: Values
+      type: Hex
+    TICK_TIME:
+      attributes:
+        id: TICK_TIME
+      children:
+      - children:
+        - attributes:
+            id: sent1
+            value: '11'
+          type: Dynamic
+        type: Values
+      type: Hex
+  userData: {}
