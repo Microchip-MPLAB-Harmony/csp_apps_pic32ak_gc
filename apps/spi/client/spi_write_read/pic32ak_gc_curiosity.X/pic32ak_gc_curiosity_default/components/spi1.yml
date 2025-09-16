@@ -1,0 +1,121 @@
+configVersion: 1.0.0
+componentName: spi1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: spi1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: spi1
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CALCULATED_SPEED:
+      attributes:
+        id: CALCULATED_SPEED
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLIENT_SELECT:
+      attributes:
+        id: CLIENT_SELECT
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SPIS_BUSY_PIN:
+      attributes:
+        id: SPIS_BUSY_PIN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '18'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPIS_BUSY_PIN_LOGIC_LEVEL:
+      attributes:
+        id: SPIS_BUSY_PIN_LOGIC_LEVEL
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPIS_CS_PIN:
+      attributes:
+        id: SPIS_CS_PIN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '21'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPI_CON1__MSTEN:
+      attributes:
+        id: SPI_CON1__MSTEN
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: '0'
+          type: Dynamic
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+  userData: {}
