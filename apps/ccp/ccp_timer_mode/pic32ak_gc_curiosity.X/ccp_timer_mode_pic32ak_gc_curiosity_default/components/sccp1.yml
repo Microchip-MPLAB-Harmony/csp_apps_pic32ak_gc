@@ -1,0 +1,131 @@
+configVersion: 1.0.0
+componentName: sccp1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sccp1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: sccp1
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CCPCON1_REG_VALUE:
+      attributes:
+        id: CCPCON1_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '480'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCP_CCPCON1_CLKSEL:
+      attributes:
+        id: CCP_CCPCON1_CLKSEL
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_CCPCON1_T32:
+      attributes:
+        id: CCP_CCPCON1_T32
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CCP_CCPCON1_TMRPS:
+      attributes:
+        id: CCP_CCPCON1_TMRPS
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_CLOCK_FREQ:
+      attributes:
+        id: CCP_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '62500'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_PERIOD:
+      attributes:
+        id: CCP_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '4294967295'
+          type: Long
+        type: Attributes
+      - children:
+        - attributes:
+            id: sccp1
+            value: '62499'
+          type: Dynamic
+        type: Values
+      type: Long
+    CCP_PRESCALER_VALUE:
+      attributes:
+        id: CCP_PRESCALER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '64'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_TIME_PERIOD_MS:
+      attributes:
+        id: CCP_TIME_PERIOD_MS
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: 6.871948E7
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1000.0'
+          type: User
+        type: Values
+      type: Float
+  userData: {}

@@ -29,8 +29,15 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="ccp_timer_mode_pic32ak_gc_curiosity_default" displayName="ccp_timer_mode_pic32ak_gc_curiosity_default" projectFiles="true">
+        <itemPath>ccp_timer_mode_pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>ccp_timer_mode_pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>ccp_timer_mode_pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>ccp_timer_mode_pic32ak_gc_curiosity_default/components/sccp1.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>ccp_timer_mode_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
     </logicalFolder>
