@@ -1,0 +1,58 @@
+configVersion: 1.0.0
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+deviceLibrary:
+  className: com.microchip.mcc.harmony.Harmony3Library
+groupModules: []
+modules:
+- core
+- dfp
+- sent1
+- sent2
+generatedFileHashHistoryMap:
+- file: ..\src\config\default\definitions.h
+  hash: 9a2d669ed7b941caf8f5b8aa238a3e65a87c9d1070f6ebce9ad54fa229342e70
+- file: ..\src\config\default\device.h
+  hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
+- file: ..\src\config\default\initialization.c
+  hash: 099f51cc082f58886ae7282d321c7dfa19a59bfa3c36b439f3744ca704b8e2d2
+- file: ..\src\config\default\interrupts.c
+  hash: e2e7bc74d76afb1b5e9cd6ec636e173a9ab2e6707b5a42d35d3f7af83102c968
+- file: ..\src\config\default\interrupts.h
+  hash: 2b6f3a9da8b2f61b5ea3f584838ad851b151646b5fda0fb709cc05e65576fd37
+- file: ..\src\config\default\peripheral\clk\plib_clk.c
+  hash: 97d95ccc16703e838e5a0121b6a1378318d91327493cf13f84bb23ed4d0762d9
+- file: ..\src\config\default\peripheral\clk\plib_clk.h
+  hash: f7d3f341b18fd1ac84ca07821e124a717fcdd097b08d13bdf1879466996054f2
+- file: ..\src\config\default\peripheral\clk\plib_clk_common.h
+  hash: eef1f2bb06ca84239b4c79659fca909ebed461905c0b447fac7e756f5d3fd6d3
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.c
+  hash: 66e3772e4ad331f86b30a6e7c1bf4053bf457ea762ee7769625c9fb4805cc88f
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.h
+  hash: 4ca08c914b9cb90477eb80e317190911b55215e5156d66f8df864f3cf6049c24
+- file: ..\src\config\default\peripheral\intc\plib_intc.c
+  hash: f162c6ec1ea508ce90309511db0c43321f87f06b127230a7c822e1ccc17af40c
+- file: ..\src\config\default\peripheral\intc\plib_intc.h
+  hash: 0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3
+- file: ..\src\config\default\peripheral\sent\sent_rx\plib_sent2_rx.c
+  hash: 398d7ea907cdd6be548c272a50230983c3b72d42f8ea1e450b035d8bace20981
+- file: ..\src\config\default\peripheral\sent\sent_rx\plib_sent2_rx.h
+  hash: a44a0db30e5d8f199e1da124e6a36056e3e59a85df2a7db8885bb2d1f38518ba
+- file: ..\src\config\default\peripheral\sent\sent_rx\plib_sent_rx_common.h
+  hash: 4fe243ca7e9808e5d8c0375ec36b277b61e5f526030b7bd70265ce9ee237ba68
+- file: ..\src\config\default\peripheral\sent\sent_tx\plib_sent1_tx.c
+  hash: b30826450f024504a6c70b098da020c87dacf7dadd3ca25dfd37503b60b78d9e
+- file: ..\src\config\default\peripheral\sent\sent_tx\plib_sent1_tx.h
+  hash: 91651d167f8c9c6bd286a3466005225a70eafff526f5cfa4bb8a2db6e1de7a59
+- file: ..\src\config\default\peripheral\sent\sent_tx\plib_sent_tx_common.h
+  hash: 5507af398daf41a37ce09d47d88b539879964ec9e80a066bd981c64f0c17736a
+- file: ..\src\config\default\stdio\xc32_monitor.c
+  hash: 858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a
+- file: ..\src\config\default\toolchain_specifics.h
+  hash: 5cd98152c03685521e9ec6d946756d4cbe65fa54c2fdbcc447adb52b705b938b
+- file: ..\src\config\default\traps.c
+  hash: 87fa9ba519a25ee138a4c454402980f07022e803d97e188c9baa14fc9703d817
+- file: ..\src\config\default\traps.h
+  hash: 0c3944edb4f19e4a9bc3b924de2dc564e4dda1d80140d56ecc6a832c8d5c8af3
+- file: ..\src\main.c
+  hash: d3c233d419e6304bfacbafc18cc68c0f5c26e365f23b20ea40ccfac458f664c5
