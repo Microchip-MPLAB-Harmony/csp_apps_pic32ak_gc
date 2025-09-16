@@ -1,0 +1,91 @@
+configVersion: 1.0.0
+componentName: clc1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: clc1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: clc1
+          x: '343'
+          y: '19'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CLC_DS1_OUTPUT:
+      attributes:
+        id: CLC_DS1_OUTPUT
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CLC_DS3_OUTPUT:
+      attributes:
+        id: CLC_DS3_OUTPUT
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CLC_GATE1_DS1_ENABLE:
+      attributes:
+        id: CLC_GATE1_DS1_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLC_GATE3_DS3_ENABLE:
+      attributes:
+        id: CLC_GATE3_DS3_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CLC_LOGIC_CELL_MODE:
+      attributes:
+        id: CLC_LOGIC_CELL_MODE
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CLC_PORT_ENABLE:
+      attributes:
+        id: CLC_PORT_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+  userData: {}

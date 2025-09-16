@@ -235,7 +235,6 @@ void CLOCK_Initialize(void)
     
     //PLL 1 settings
     PLL1CON = (_PLL1CON_ON_MASK
-                |_PLL1CON_OE_MASK
                 |PLL1CON_NOSC_FRC
                 |PLL1CON_BOSC_BFRC);
     PLL1DIV = (PLL1DIV_PLLPRE_SET(1)
