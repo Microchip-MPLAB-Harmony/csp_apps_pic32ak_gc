@@ -50,7 +50,7 @@
 
 #define TIMER_CLOCK_FREQUENCY          100000000
 
-#define TMR_INTERRUPT_PERIOD_IN_US     39
+#define TMR_INTERRUPT_PERIOD_IN_NS     39060
 typedef struct
 {
     uint32_t start;

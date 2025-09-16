@@ -1,0 +1,74 @@
+configVersion: 1.0.0
+componentName: cmp_dac1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: cmp_dac1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: cmp_dac1
+          x: '500'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DACCTRL_CTRL2__SSTIME:
+      attributes:
+        id: DACCTRL_CTRL2__SSTIME
+      children:
+      - children:
+        - attributes:
+            id: cmp_dac1
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DACCTRL_CTRL2__TMODTIME:
+      attributes:
+        id: DACCTRL_CTRL2__TMODTIME
+      children:
+      - children:
+        - attributes:
+            id: cmp_dac1
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DAC_CON__DACOEN:
+      attributes:
+        id: DAC_CON__DACOEN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    cmpDacInputClock:
+      attributes:
+        id: cmpDacInputClock
+      children:
+      - children:
+        - attributes:
+            id: cmp_dac1
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}

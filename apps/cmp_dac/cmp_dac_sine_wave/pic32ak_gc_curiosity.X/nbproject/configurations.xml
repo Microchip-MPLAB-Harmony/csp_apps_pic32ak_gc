@@ -36,8 +36,16 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="cmp_dac_sine_wave_pic32ak_gc_curiosity_default" displayName="cmp_dac_sine_wave_pic32ak_gc_curiosity_default" projectFiles="true">
+        <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity_default/components/cmp_dac1.yml</itemPath>
+          <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity_default/components/timer1.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>cmp_dac_sine_wave_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles" displayName="LibraryFiles" projectFiles="true">
     </logicalFolder>
