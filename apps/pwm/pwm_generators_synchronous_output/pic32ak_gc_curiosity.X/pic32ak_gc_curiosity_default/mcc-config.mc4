@@ -1,0 +1,48 @@
+configVersion: 1.0.0
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+deviceLibrary:
+  className: com.microchip.mcc.harmony.Harmony3Library
+groupModules: []
+modules:
+- core
+- dfp
+- pwm
+generatedFileHashHistoryMap:
+- file: ..\src\config\default\definitions.h
+  hash: 3dc75323eef0e29c69a2c0858d65a63f08a71bf68019aaf1edaea21cbef0ed3d
+- file: ..\src\config\default\device.h
+  hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
+- file: ..\src\config\default\initialization.c
+  hash: e504c4f6eb43ae150a81dbdff0e368b1260979f4eaaa157056b4cafbaac845cb
+- file: ..\src\config\default\interrupts.c
+  hash: aff198b29dcd76f913cfa8860df2214fa8df24e53385500c4f7f6769eede1d00
+- file: ..\src\config\default\interrupts.h
+  hash: abe4fd9181834ccbb60b8bca7733dd0d4f96d4ddc5056d26c7c2d245cd9f05fc
+- file: ..\src\config\default\peripheral\clk\plib_clk.c
+  hash: 6c4c276f59ec06f9a6717bf3c2fa7bffb065d900358f49b3d7171d5201dc5e21
+- file: ..\src\config\default\peripheral\clk\plib_clk.h
+  hash: 9b3f1b4580f7a48136dd2d7b3a88e6d726212c400f7daa8b49649889085b9d52
+- file: ..\src\config\default\peripheral\clk\plib_clk_common.h
+  hash: eef1f2bb06ca84239b4c79659fca909ebed461905c0b447fac7e756f5d3fd6d3
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.c
+  hash: 26c0bdb409471dd3076b86ed90270b58612c7c22f3cdaf9cee8e4711e95f5e38
+- file: ..\src\config\default\peripheral\gpio\plib_gpio.h
+  hash: 82800a21b6d0dfee4b9fbf2b85fbae30b5f52b20109bbe51c4861d2d14d6fab4
+- file: ..\src\config\default\peripheral\intc\plib_intc.c
+  hash: d312fffe056e9a8c6167b7ef2491d52b9c2b98d52fecbc2a456f9de7b8f788c3
+- file: ..\src\config\default\peripheral\intc\plib_intc.h
+  hash: 0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3
+- file: ..\src\config\default\peripheral\pwm\plib_pwm.c
+  hash: 34f557903c6c19d088a03efa2c9990457c17ba9c080c8aaa88e9035c98f04329
+- file: ..\src\config\default\peripheral\pwm\plib_pwm.h
+  hash: a2cb7c5a58ace29ad072be0325c4d51eac89e4291c0ee698546181e26f67ad79
+- file: ..\src\config\default\stdio\xc32_monitor.c
+  hash: 858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a
+- file: ..\src\config\default\toolchain_specifics.h
+  hash: 5cd98152c03685521e9ec6d946756d4cbe65fa54c2fdbcc447adb52b705b938b
+- file: ..\src\config\default\traps.c
+  hash: 87fa9ba519a25ee138a4c454402980f07022e803d97e188c9baa14fc9703d817
+- file: ..\src\config\default\traps.h
+  hash: 0c3944edb4f19e4a9bc3b924de2dc564e4dda1d80140d56ecc6a832c8d5c8af3
+- file: ..\src\main.c
