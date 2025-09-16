@@ -32,8 +32,17 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="crc_crc32_generate_pic32ak_gc_curiosity_default" displayName="crc_crc32_generate_pic32ak_gc_curiosity_default" projectFiles="true">
+        <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/components/crc.yml</itemPath>
+          <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/components/stdio.yml</itemPath>
+          <itemPath>crc_crc32_generate_pic32ak_gc_curiosity_default/components/uart1.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>crc_crc32_generate_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
     </logicalFolder>
