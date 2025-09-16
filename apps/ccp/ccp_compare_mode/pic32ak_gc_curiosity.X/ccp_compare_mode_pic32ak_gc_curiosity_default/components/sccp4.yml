@@ -1,0 +1,117 @@
+configVersion: 1.0.0
+componentName: sccp4
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sccp4
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: sccp4
+          x: '650'
+          y: '40'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CCPCON1_REG_VALUE:
+      attributes:
+        id: CCPCON1_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCPCON2_REG_VALUE:
+      attributes:
+        id: CCPCON2_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '16777216'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCPCON3_REG_VALUE:
+      attributes:
+        id: CCPCON3_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCP_CLOCK_FREQ:
+      attributes:
+        id: CCP_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_COMP_CCPCON2_OCAEN:
+      attributes:
+        id: CCP_COMP_CCPCON2_OCAEN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CCP_OPERATION_MODE:
+      attributes:
+        id: CCP_OPERATION_MODE
+      children:
+      - children:
+        - attributes:
+            value: Compare
+          type: User
+        type: Values
+      type: Combo
+    CCP_PERIOD:
+      attributes:
+        id: CCP_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '29999'
+          type: Dynamic
+        type: Values
+      type: Long
+    CCP_PRESCALER_VALUE:
+      attributes:
+        id: CCP_PRESCALER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp4
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}

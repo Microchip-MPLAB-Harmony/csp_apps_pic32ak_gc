@@ -1,0 +1,157 @@
+configVersion: 1.0.0
+componentName: sccp1
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sccp1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: sccp1
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CCPCON1_REG_VALUE:
+      attributes:
+        id: CCPCON1_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '68'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCPCON2_REG_VALUE:
+      attributes:
+        id: CCPCON2_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '16777216'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCPCON3_REG_VALUE:
+      attributes:
+        id: CCPCON3_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    CCP_CCPCON1_TMRPS:
+      attributes:
+        id: CCP_CCPCON1_TMRPS
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_CLOCK_FREQ:
+      attributes:
+        id: CCP_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '25000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_COMP_CCPCON1_MOD:
+      attributes:
+        id: CCP_COMP_CCPCON1_MOD
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_COMP_CCPCON2_OCAEN:
+      attributes:
+        id: CCP_COMP_CCPCON2_OCAEN
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CCP_COMP_CCPPR:
+      attributes:
+        id: CCP_COMP_CCPPR
+      children:
+      - children:
+        - attributes:
+            value: '5000'
+          type: User
+        type: Values
+      type: Long
+    CCP_OPERATION_MODE:
+      attributes:
+        id: CCP_OPERATION_MODE
+      children:
+      - children:
+        - attributes:
+            value: Compare
+          type: User
+        type: Values
+      type: Combo
+    CCP_PERIOD:
+      attributes:
+        id: CCP_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '7499'
+          type: Dynamic
+        type: Values
+      type: Long
+    CCP_PRESCALER_VALUE:
+      attributes:
+        id: CCP_PRESCALER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '4'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_TIMER_INTERRUPT:
+      attributes:
+        id: CCP_TIMER_INTERRUPT
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+  userData: {}
