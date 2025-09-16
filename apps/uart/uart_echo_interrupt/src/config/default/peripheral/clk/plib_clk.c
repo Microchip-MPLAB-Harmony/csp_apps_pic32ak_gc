@@ -239,6 +239,7 @@ void CLOCK_Initialize(void)
     PLL1CONbits.ON = 0U;
     //Clock Generator 1 settings
     CLK1CON = (_CLK1CON_ON_MASK
+                |_CLK1CON_OE_MASK
                 |CLK1CON_NOSC_PLL1_FOUT
                 |CLK1CON_BOSC_BFRC
                 |_CLK1CON_FSCMEN_MASK);
@@ -251,6 +252,7 @@ void CLOCK_Initialize(void)
 
     //Clock Generator 2 settings
     CLK2CON = (_CLK2CON_ON_MASK
+                |_CLK2CON_OE_MASK
                 |CLK2CON_NOSC_FRC
                 |CLK2CON_BOSC_BFRC);
     //Enable clock switching
@@ -262,6 +264,7 @@ void CLOCK_Initialize(void)
 
     //Clock Generator 3 settings
     CLK3CON = (_CLK3CON_ON_MASK
+                |_CLK3CON_OE_MASK
                 |CLK3CON_NOSC_BFRC
                 |CLK3CON_BOSC_FRC);
     //Enable clock switching
