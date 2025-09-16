@@ -29,8 +29,15 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="true">
+      <logicalFolder name="timer_interrupt_mode_pic32ak_gc_curiosity" displayName="timer_interrupt_mode_pic32ak_gc_curiosity" projectFiles="true">
+        <itemPath>timer_interrupt_mode_pic32ak_gc_curiosity/mcc-config.mc4</itemPath>
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>timer_interrupt_mode_pic32ak_gc_curiosity/components/core.yml</itemPath>
+          <itemPath>timer_interrupt_mode_pic32ak_gc_curiosity/components/dfp.yml</itemPath>
+          <itemPath>timer_interrupt_mode_pic32ak_gc_curiosity/components/timer1.yml</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>timer_interrupt_mode_pic32ak_gc_curiosity.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
     </logicalFolder>
