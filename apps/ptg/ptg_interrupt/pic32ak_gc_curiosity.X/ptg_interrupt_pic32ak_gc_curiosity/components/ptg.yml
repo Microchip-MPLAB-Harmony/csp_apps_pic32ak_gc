@@ -1,0 +1,290 @@
+configVersion: 1.0.0
+componentName: ptg
+coreVersion: 5.8.2
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: ptg
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: ptg
+          x: '340'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CLK_FREQ:
+      attributes:
+        id: CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PTG0Interrupt:
+      attributes:
+        id: PTG0Interrupt
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PTG1Interrupt:
+      attributes:
+        id: PTG1Interrupt
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PTGSDLIM:
+      attributes:
+        id: PTGSDLIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '8'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PTGT0LIM:
+      attributes:
+        id: PTGT0LIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '64000'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PTGT1LIM:
+      attributes:
+        id: PTGT1LIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '8'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP0_COMMAND:
+      attributes:
+        id: STEP0_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGWLO
+          type: User
+        type: Values
+      type: Combo
+    STEP0_OPTIONS:
+      attributes:
+        id: STEP0_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: Trigger Input from PWM Channel 1
+          type: Dynamic
+        - attributes:
+            value: Trigger Input from INT2 PPS
+          type: User
+        type: Values
+      type: Combo
+    STEP0_OPTION_VALUE:
+      attributes:
+        id: STEP0_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '15'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP1_OPTIONS:
+      attributes:
+        id: STEP1_OPTIONS
+      children:
+      - children:
+        - attributes:
+            value: Wait for PTG Timer0 to match PTGT0LIM
+          type: User
+        type: Values
+      type: Combo
+    STEP1_OPTION_VALUE:
+      attributes:
+        id: STEP1_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '8'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP2_COMMAND:
+      attributes:
+        id: STEP2_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGIRQ
+          type: User
+        type: Values
+      type: Combo
+    STEP2_OPTIONS:
+      attributes:
+        id: STEP2_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: Generate PTG Interrupt 0
+          type: Dynamic
+        type: Values
+      type: Combo
+    STEP2_OPTION_VALUE:
+      attributes:
+        id: STEP2_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP3_COMMAND:
+      attributes:
+        id: STEP3_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGTRIG
+          type: User
+        type: Values
+      type: Combo
+    STEP3_OPTIONS:
+      attributes:
+        id: STEP3_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: Trigger for ADC Sample Trigger
+          type: Dynamic
+        type: Values
+      type: Combo
+    STEP3_OPTION_VALUE:
+      attributes:
+        id: STEP3_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '12'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP4_COMMAND:
+      attributes:
+        id: STEP4_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGIRQ
+          type: User
+        type: Values
+      type: Combo
+    STEP4_OPTIONS:
+      attributes:
+        id: STEP4_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: Generate PTG Interrupt 0
+          type: Dynamic
+        - attributes:
+            value: Generate PTG Interrupt 1
+          type: User
+        type: Values
+      type: Combo
+    STEP4_OPTION_VALUE:
+      attributes:
+        id: STEP4_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Hex
+    isPtgInterruptEnabled:
+      attributes:
+        id: isPtgInterruptEnabled
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    maxStepSequence:
+      attributes:
+        id: maxStepSequence
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '32'
+          type: Dynamic
+        type: Values
+      type: Integer
+    timer0Period:
+      attributes:
+        id: timer0Period
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '8191.875'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
+            value: '8000.0'
+          type: User
+        type: Values
+      type: Float
+  userData: {}
