@@ -147,10 +147,16 @@ data:
       - children:
         - attributes:
             id: adc1
-            value: "    AD1CON = 0x4A0000UL;\n    AD1DATAOVR = 0x0UL;\n    AD1STAT\
-              \ = 0x0UL;\n    AD1CMPSTAT = 0x0UL;\n    AD1CH0CON = 0x0UL;\n    AD1CH0DATA\
-              \ = 0x0UL;\n    AD1CH0CNT = 0x0UL;\n    AD1CH0CMPLO = 0x0UL;\n    AD1CH0CMPHI\
-              \ = 0x0UL;\n"
+            value: |2
+                  AD1CON = 0x4A0000UL;
+                  AD1DATAOVR = 0x0UL;
+                  AD1STAT = 0x0UL;
+                  AD1CMPSTAT = 0x0UL;
+                  AD1CH0CON = 0x0UL;
+                  AD1CH0DATA = 0x0UL;
+                  AD1CH0CNT = 0x0UL;
+                  AD1CH0CMPLO = 0x0UL;
+                  AD1CH0CMPHI = 0x0UL;
           type: Dynamic
         type: Values
       type: String

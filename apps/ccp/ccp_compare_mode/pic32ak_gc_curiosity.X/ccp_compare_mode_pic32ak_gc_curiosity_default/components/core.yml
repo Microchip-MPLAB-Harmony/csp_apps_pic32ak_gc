@@ -640,7 +640,9 @@ data:
       - children:
         - attributes:
             id: core
-            value: "IPC6bits.CCT2IP = 1;\n    IPC6bits.CCT4IP = 1;"
+            value: |-
+              IPC6bits.CCT2IP = 1;
+                  IPC6bits.CCT4IP = 1;
           type: Dynamic
         type: Values
       type: String

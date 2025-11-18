@@ -1055,23 +1055,67 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: "    MDC = 0x0UL;\n\n    MPER = 0x0UL;\n\n    MPHASE = 0x0UL;\n\
-              \n    PCLKCON = 0x0UL;\n\n    PG1CON = 0x0UL;\n    PG1IOCON = 0x0UL;\n\
-              \    PG1STAT = 0x0UL;\n    PG1EVT = 0x0UL;\n    PG1DC = 0x0UL;\n   \
-              \ PG1PER = 0x0UL;\n    PG1PHASE = 0x0UL;\n    PG1DT = 0x0UL;\n    PG1FPCI\
-              \ = 0x0UL;\n    PG1TRIGA = 0x0UL;\n    PG1TRIGB = 0x0UL;\n    PG1TRIGC\
-              \ = 0x0UL;\n\n    PG2CON = 0x0UL;\n    PG2IOCON = 0x0UL;\n    PG2STAT\
-              \ = 0x0UL;\n    PG2EVT = 0x0UL;\n    PG2DC = 0x0UL;\n    PG2PER = 0x0UL;\n\
-              \    PG2PHASE = 0x0UL;\n    PG2DT = 0x0UL;\n    PG2FPCI = 0x0UL;\n \
-              \   PG2TRIGA = 0x0UL;\n    PG2TRIGB = 0x0UL;\n    PG2TRIGC = 0x0UL;\n\
-              \n    PG3CON = 0x0UL;\n    PG3IOCON = 0x0UL;\n    PG3STAT = 0x0UL;\n\
-              \    PG3EVT = 0x0UL;\n    PG3DC = 0x0UL;\n    PG3PER = 0x0UL;\n    PG3PHASE\
-              \ = 0x0UL;\n    PG3DT = 0x0UL;\n    PG3FPCI = 0x0UL;\n    PG3TRIGA =\
-              \ 0x0UL;\n    PG3TRIGB = 0x0UL;\n    PG3TRIGC = 0x0UL;\n\n    PG4CON\
-              \ = 0x0UL;\n    PG4IOCON = 0x0UL;\n    PG4STAT = 0x0UL;\n    PG4EVT\
-              \ = 0x0UL;\n    PG4DC = 0x0UL;\n    PG4PER = 0x0UL;\n    PG4PHASE =\
-              \ 0x0UL;\n    PG4DT = 0x0UL;\n    PG4FPCI = 0x0UL;\n    PG4TRIGA = 0x0UL;\n\
-              \    PG4TRIGB = 0x0UL;\n    PG4TRIGC = 0x0UL;\n\n"
+            value: |2+
+                  MDC = 0x0UL;
+
+                  MPER = 0x0UL;
+
+                  MPHASE = 0x0UL;
+
+                  PCLKCON = 0x0UL;
+
+                  PG1CON = 0x0UL;
+                  PG1IOCON = 0x0UL;
+                  PG1STAT = 0x0UL;
+                  PG1EVT = 0x0UL;
+                  PG1DC = 0x0UL;
+                  PG1PER = 0x0UL;
+                  PG1PHASE = 0x0UL;
+                  PG1DT = 0x0UL;
+                  PG1FPCI = 0x0UL;
+                  PG1TRIGA = 0x0UL;
+                  PG1TRIGB = 0x0UL;
+                  PG1TRIGC = 0x0UL;
+
+                  PG2CON = 0x0UL;
+                  PG2IOCON = 0x0UL;
+                  PG2STAT = 0x0UL;
+                  PG2EVT = 0x0UL;
+                  PG2DC = 0x0UL;
+                  PG2PER = 0x0UL;
+                  PG2PHASE = 0x0UL;
+                  PG2DT = 0x0UL;
+                  PG2FPCI = 0x0UL;
+                  PG2TRIGA = 0x0UL;
+                  PG2TRIGB = 0x0UL;
+                  PG2TRIGC = 0x0UL;
+
+                  PG3CON = 0x0UL;
+                  PG3IOCON = 0x0UL;
+                  PG3STAT = 0x0UL;
+                  PG3EVT = 0x0UL;
+                  PG3DC = 0x0UL;
+                  PG3PER = 0x0UL;
+                  PG3PHASE = 0x0UL;
+                  PG3DT = 0x0UL;
+                  PG3FPCI = 0x0UL;
+                  PG3TRIGA = 0x0UL;
+                  PG3TRIGB = 0x0UL;
+                  PG3TRIGC = 0x0UL;
+
+                  PG4CON = 0x0UL;
+                  PG4IOCON = 0x0UL;
+                  PG4STAT = 0x0UL;
+                  PG4EVT = 0x0UL;
+                  PG4DC = 0x0UL;
+                  PG4PER = 0x0UL;
+                  PG4PHASE = 0x0UL;
+                  PG4DT = 0x0UL;
+                  PG4FPCI = 0x0UL;
+                  PG4TRIGA = 0x0UL;
+                  PG4TRIGB = 0x0UL;
+                  PG4TRIGC = 0x0UL;
+
           type: Dynamic
         type: Values
       type: String

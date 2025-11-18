@@ -411,8 +411,12 @@ data:
       - children:
         - attributes:
             id: core
-            value: "    CLOCK_SYSTEM = 1,\n    CLOCK_FRC = 2,\n    CLOCK_WDT = 3,\n\
-              \    CLOCK_BFRC = 3,\n    CLOCK_CMP_DAC = 7"
+            value: |2-
+                  CLOCK_SYSTEM = 1,
+                  CLOCK_FRC = 2,
+                  CLOCK_WDT = 3,
+                  CLOCK_BFRC = 3,
+                  CLOCK_CMP_DAC = 7
           type: Dynamic
         type: Values
       type: String
@@ -423,10 +427,24 @@ data:
       - children:
         - attributes:
             id: core
-            value: "    DMACON = 0x0UL;\n\n    DMABUF = 0x0UL;\n\n    DMALOW = 0x0UL;\n\
-              \n    DMAHIGH = 0x0UL;\n\n    DMA0CH = 0x0UL;\n    DMA0SEL = 0x0UL;\n\
-              \    DMA0STAT = 0x0UL;\n    DMA0SRC = 0x0UL;\n    DMA0DST = 0x0UL;\n\
-              \    DMA0CNT = 0x1UL;\n    DMA0MSK = 0x0UL;\n    DMA0PAT = 0x0UL;\n\n"
+            value: |2+
+                  DMACON = 0x0UL;
+
+                  DMABUF = 0x0UL;
+
+                  DMALOW = 0x0UL;
+
+                  DMAHIGH = 0x0UL;
+
+                  DMA0CH = 0x0UL;
+                  DMA0SEL = 0x0UL;
+                  DMA0STAT = 0x0UL;
+                  DMA0SRC = 0x0UL;
+                  DMA0DST = 0x0UL;
+                  DMA0CNT = 0x1UL;
+                  DMA0MSK = 0x0UL;
+                  DMA0PAT = 0x0UL;
+
           type: Dynamic
         type: Values
       type: String

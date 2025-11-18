@@ -570,8 +570,10 @@ data:
       - children:
         - attributes:
             id: core
-            value: "IPC6bits.T1IP = 1;\n    IPC14bits.CNAIP = 1;\n    IPC14bits.CNCIP\
-              \ = 1;"
+            value: |-
+              IPC6bits.T1IP = 1;
+                  IPC14bits.CNAIP = 1;
+                  IPC14bits.CNCIP = 1;
           type: Dynamic
         type: Values
       type: String

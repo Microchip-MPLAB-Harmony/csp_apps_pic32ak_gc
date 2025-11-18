@@ -283,10 +283,10 @@ void SYS_Initialize ( void* data )
 
     DMA_Initialize();
 
-    TMR1_Initialize();
-
-
     CMP1_Initialize();
+
+
+    TMR1_Initialize();
 
 
 

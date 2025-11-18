@@ -927,8 +927,13 @@ data:
       - children:
         - attributes:
             id: core
-            value: "    CLOCK_SYSTEM = 1,\n    CLOCK_FRC = 2,\n    CLOCK_WDT = 3,\n\
-              \    CLOCK_BFRC = 3,\n    CLOCK_CCP = 12,\n    CLOCK_REFO1 = 12"
+            value: |2-
+                  CLOCK_SYSTEM = 1,
+                  CLOCK_FRC = 2,
+                  CLOCK_WDT = 3,
+                  CLOCK_BFRC = 3,
+                  CLOCK_CCP = 12,
+                  CLOCK_REFO1 = 12
           type: Dynamic
         type: Values
       type: String
@@ -950,8 +955,10 @@ data:
       - children:
         - attributes:
             id: core
-            value: "IPC7bits.SPI1RXIP = 1;\n    IPC8bits.SPI1TXIP = 1;\n    IPC8bits.SPI1EIP\
-              \ = 1;"
+            value: |-
+              IPC7bits.SPI1RXIP = 1;
+                  IPC8bits.SPI1TXIP = 1;
+                  IPC8bits.SPI1EIP = 1;
           type: Dynamic
         type: Values
       type: String

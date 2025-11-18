@@ -11,11 +11,11 @@ modules:
 - timer1
 generatedFileHashHistoryMap:
 - file: ..\src\config\default\definitions.h
-  hash: 018a8c0c4bd44bcbb887ec5324ef97f26b41d90577e0a0c4e07a091410dcf70f
+  hash: 35c35a46e8729d776bb84121003424959b79ad4ee3bdf1c82169116000dacf03
 - file: ..\src\config\default\device.h
   hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
 - file: ..\src\config\default\initialization.c
-  hash: 6516188676e04b908b0cf5a12723f2a6e948fcf3ec0fcbdacf655e50365a7d3a
+  hash: eea96055ed4d46121d75445423d62481641bfcf857505053d8e5dd138b960b88
 - file: ..\src\config\default\interrupts.c
   hash: a8547328eede6bef73644f7811a46af5487ec5ac051c0d12dfc103fd1826d579
 - file: ..\src\config\default\interrupts.h

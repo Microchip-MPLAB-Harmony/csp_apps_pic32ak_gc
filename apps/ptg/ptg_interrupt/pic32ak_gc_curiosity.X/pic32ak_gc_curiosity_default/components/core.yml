@@ -903,8 +903,13 @@ data:
       - children:
         - attributes:
             id: core
-            value: "    CLOCK_SYSTEM = 1,\n    CLOCK_FRC = 2,\n    CLOCK_WDT = 3,\n\
-              \    CLOCK_BFRC = 3,\n    CLOCK_ADC = 6,\n    CLOCK_PTG = 10"
+            value: |2-
+                  CLOCK_SYSTEM = 1,
+                  CLOCK_FRC = 2,
+                  CLOCK_WDT = 3,
+                  CLOCK_BFRC = 3,
+                  CLOCK_ADC = 6,
+                  CLOCK_PTG = 10
           type: Dynamic
         type: Values
       type: String
@@ -1102,7 +1107,9 @@ data:
       - children:
         - attributes:
             id: core
-            value: "IPC17bits.PTG0IP = 1;\n    IPC17bits.PTG1IP = 1;"
+            value: |-
+              IPC17bits.PTG0IP = 1;
+                  IPC17bits.PTG1IP = 1;
           type: Dynamic
         type: Values
       type: String

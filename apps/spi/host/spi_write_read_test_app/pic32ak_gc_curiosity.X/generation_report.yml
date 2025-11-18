@@ -1,0 +1,87 @@
+generatedFiles:
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/toolchain_specifics.h
+  projectFolder: config/default
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/main.c
+  projectFolder: ''
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/definitions.h
+  projectFolder: config/default
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/initialization.c
+  projectFolder: config/default
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/interrupts.c
+  projectFolder: config/default
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/interrupts.h
+  projectFolder: config/default
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/traps.c
+  projectFolder: config/default
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/traps.h
+  projectFolder: config/default
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/stdio/xc32_monitor.c
+  projectFolder: config/default/stdio
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/clk/plib_clk.h
+  projectFolder: config/default/peripheral/clk
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/clk/plib_clk_common.h
+  projectFolder: config/default/peripheral/clk
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/clk/plib_clk.c
+  projectFolder: config/default/peripheral/clk
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/gpio/plib_gpio.h
+  projectFolder: config/default/peripheral/gpio
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/gpio/plib_gpio.c
+  projectFolder: config/default/peripheral/gpio
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/intc/plib_intc.c
+  projectFolder: config/default/peripheral/intc
+  type: Source Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/intc/plib_intc.h
+  projectFolder: config/default/peripheral/intc
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/device.h
+  projectFolder: config/default
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h
+  projectFolder: config/default/peripheral/spi/spi_host
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/spi/spi_host/plib_spi1_host.h
+  projectFolder: config/default/peripheral/spi/spi_host
+  type: Header Files
+- excludeFromProject: false
+  path: /home/svcjenkins/workspace/apps-team/Users/skn/fix-double-type-symbol-issue/csp_apps_pic32ak_gc/apps/spi/host/spi_write_read_test_app/src/config/default/peripheral/spi/spi_host/plib_spi1_host.c
+  projectFolder: config/default/peripheral/spi/spi_host
+  type: Source Files
+generatedSettings:
+- category: C32
+  key: extra-include-directories
+  value: ../src;../src/config/default;
+removedFiles: [
+  ]

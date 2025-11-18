@@ -40,18 +40,18 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
-      <logicalFolder name="ptg_interrupt_pic32ak_gc_curiosity"
-                     displayName="ptg_interrupt_pic32ak_gc_curiosity"
+      <logicalFolder name="pic32ak_gc_curiosity_default"
+                     displayName="pic32ak_gc_curiosity_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/adc1.yml</itemPath>
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/core.yml</itemPath>
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/dfp.yml</itemPath>
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/ptg.yml</itemPath>
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/stdio.yml</itemPath>
-          <itemPath>ptg_interrupt_pic32ak_gc_curiosity/components/uart1.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/adc1.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/core.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/dfp.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/ptg.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/stdio.yml</itemPath>
+          <itemPath>pic32ak_gc_curiosity_default/components/uart1.yml</itemPath>
         </logicalFolder>
-        <itemPath>ptg_interrupt_pic32ak_gc_curiosity/mcc-config.mc4</itemPath>
+        <itemPath>pic32ak_gc_curiosity_default/mcc-config.mc4</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
     </logicalFolder>

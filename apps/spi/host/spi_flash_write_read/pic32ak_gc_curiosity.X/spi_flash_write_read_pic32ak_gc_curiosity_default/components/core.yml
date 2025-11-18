@@ -749,16 +749,18 @@ data:
       - children:
         - attributes:
             id: core
-            value: "IPC7bits.SPI1RXIP = 1;\n    IPC8bits.SPI1TXIP = 1;\n    IPC8bits.SPI1EIP\
-              \ = 1;"
+            value: |-
+              IPC7bits.SPI1RXIP = 1;
+                  IPC8bits.SPI1TXIP = 1;
+                  IPC8bits.SPI1EIP = 1;
           type: Dynamic
         type: Values
       type: String
   userData:
     children:
     - attributes:
-        canvasHeight: '90'
-        canvasWidth: '477'
+        canvasHeight: '0'
+        canvasWidth: '0'
       type: GraphSettings
     - children:
       - attributes:
